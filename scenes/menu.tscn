@@ -3,18 +3,21 @@
 [ext_resource type="Script" uid="uid://sy8jy4dhitu8" path="res://scenes/menu.gd" id="1"]
 
 [node name="MainMenu" type="Control"]
-<<<<<<< Updated upstream
-=======
 layout_mode = 3
 anchors_preset = 0
->>>>>>> Stashed changes
 script = ExtResource("1")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.1, 0.1, 0.2, 1)
+color = Color(0.08, 0.12, 0.16, 1)
+
+[node name="GradientOverlay" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.2, 0.35, 0.45, 0.3)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -23,10 +26,13 @@ anchor_left = 0.5
 anchor_top = 0.3
 anchor_right = 0.5
 anchor_bottom = 0.3
-offset_left = 182.0
-offset_top = 64.0
-offset_right = 936.0
-offset_bottom = 152.0
+offset_left = -377.0
+offset_top = -44.0
+offset_right = 377.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.2, 0.1, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 64
 text = "Buffalo Brook Gold Rush"
 horizontal_alignment = 1
@@ -39,15 +45,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 487.0
-offset_top = 279.0
-offset_right = 637.0
-offset_bottom = 329.0
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(75, 25)
-theme_override_font_sizes/font_size = 24
-text = "Start Mining"
+pivot_offset = Vector2(100, 27.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 28
+text = "⛏ Start Mining"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 1
@@ -56,13 +65,16 @@ anchor_left = 0.5
 anchor_top = 0.6
 anchor_right = 0.5
 anchor_bottom = 0.6
-offset_left = 488.0
-offset_top = 338.0
-offset_right = 638.0
-offset_bottom = 388.0
-pivot_offset = Vector2(75, 25)
+offset_left = -100.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 50.0
+pivot_offset = Vector2(100, 25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.4, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.85, 0.3, 1)
 theme_override_font_sizes/font_size = 24
-text = "Settings"
+text = "⚙ Settings"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 1
@@ -71,28 +83,34 @@ anchor_left = 0.5
 anchor_top = 0.7
 anchor_right = 0.5
 anchor_bottom = 0.7
-offset_left = 488.0
-offset_top = 405.0
-offset_right = 638.0
-offset_bottom = 455.0
-pivot_offset = Vector2(75, 25)
+offset_left = -100.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 50.0
+pivot_offset = Vector2(100, 25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.5, 0.5, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.3, 0.3, 1)
 theme_override_font_sizes/font_size = 24
-text = "Quit"
+text = "✕ Quit"
 
 [node name="Credits" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.9
 anchor_right = 0.5
 anchor_bottom = 0.9
-text = "© 2023 Gold Rush Games"
+offset_left = -200.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 0.8)
+theme_override_font_sizes/font_size = 14
+text = "© 2023 Gold Rush Games - A Vermont Gold Panning Adventure"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]
-<<<<<<< Updated upstream
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
-=======
-[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
->>>>>>> Stashed changes

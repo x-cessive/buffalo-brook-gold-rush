@@ -2,10 +2,7 @@
 ## Manages the game time and signals time-based events
 
 extends Node
-<<<<<<< Updated upstream
 class_name TimeClock
-=======
->>>>>>> Stashed changes
 
 # Time-related enums and constants
 enum TimeOfDay {

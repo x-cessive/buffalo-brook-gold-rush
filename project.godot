@@ -11,11 +11,6 @@ config_version=5
 [application]
 
 config/name="Buffalo Brook Gold Rush"
-<<<<<<< Updated upstream
-# config/icon="res://icon.png"
-run/main_scene="res://scenes/menu.tscn"
-=======
->>>>>>> Stashed changes
 config/version="1.0.0"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.5")
@@ -28,9 +23,9 @@ config/export_cache_mode=2
 
 [audio]
 
-driver="dummy"
+driver="PulseAudio"
 output_latency=0.05
-mix_rate=0
+mix_rate=44100
 enable_audio_input=false
 fix_rate=44100
 video_delay_compensation_ms=0
@@ -70,8 +65,6 @@ orientation/allow_vertical=true
 orientation/allow_vertical_flipped=true
 window/drop_files_enabled=true
 
-<<<<<<< Updated upstream
-=======
 [editor]
 
 main_run_args=""
@@ -759,79 +752,6 @@ quality/rendering_method/2d_use_lighting_shader_with_sdf_forward_gi=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_screen_texture=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_screen_uv=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_prev_vertex_colors=true
-<<<<<<< Updated upstream
-quality/rendering_method/2d_use_lighting_shader_with_sdf_collision=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_texture=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_normal=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_distance=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_ao=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_light=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_shadow=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_reflection=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_refraction=true
-
-[physics]
-
-2d/active=true
-2d/safe_margin=1.0
-2d/bullet_restitution_threshold=0.5
-2d/solver_iterations=8
-2d/solver_velocity_iterations=1
-2d/solver_bias=0.1
-2d/solver_mode=0
-2d/collision_margin=0.001
-2d/continuous_cd=1
-2d/locking_rotation=false
-2d/thread_model=0
-2d/time_step=0.016667
-2d/use_real_time_stamp=false
-2d/wrap_motion=false
-3d/active=true
-3d/solver_iterations=8
-3d/solver_velocity_iterations=1
-3d/solver_bias=0.1
-3d/solver_mode=0
-3d/active_frame_power=2.0
-3d/collision_margin=0.001
-3d/continuous_cd=0
-3d/continuous_cd_ultra=false
-3d/default_center_of_mass_mode=0
-3d/default_gravity=9.8
-3d/default_gravity_vector=Vector3(0, -1, 0)
-3d/default_linear_damp=0.1
-3d/default_angular_damp=0.1
-3d/jolt_physics_engine/perform_radius_cast_queries=true
-3d/jolt_physics_engine/deterministic_query_hits=true
-3d/jolt_physics_engine/check_body_scale=true
-3d/jolt_physics_engine/check_shape_scale=true
-3d/jolt_physics_engine/reuse_contact_constraints=true
-3d/jolt_physics_engine/deterministic_simulation=false
-3d/jolt_physics_engine/thread_count=0
-3d/jolt_physics_engine/job_queue_capacity=256
-3d/jolt_physics_engine/temp_allocator_size=16777216
-3d/jolt_physics_engine/contact_allocator_size=1048576
-3d/jolt_physics_engine/before_collision_callback_motion_threshold=0.0
-3d/jolt_physics_engine/override_default_thread_count=true
-3d/jolt_physics_engine/expand_spheres_to_aabb=false
-3d/jolt_physics_engine/use_edge_removal_for_mesh_shapes=false
-3d/jolt_physics_engine/use_height_field_collision_for_mesh_shapes=true
-3d/jolt_physics_engine/use_large_hit_result_dispatcher=true
-3d/thread_model=0
-3d/time_step=0.016667
-3d/use_real_time_stamp=false
-3d/wrap_motion=false
-
-[audio]
-
-driver="PulseAudio"
-output_latency=0.05
-mix_rate=22050
-enable_audio_input=false
-fix_rate=44100
-video_delay_compensation_ms=0
-updater_threads=0
-=======
->>>>>>> Stashed changes
 
 [rendering_device]
 

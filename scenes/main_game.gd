@@ -16,10 +16,20 @@ var gold_count: int = 0
 var current_tool: String = "Basic Pan"
 var is_panning: bool = false
 var panning_progress: float = 0.0
-var panning_duration: float = 3.0  # Time in seconds to complete panning action
+var panning_duration: float = 2.0  # Reduced time for faster gameplay
+
+# Combo system for consecutive finds
+var combo_count: int = 0
+var combo_multiplier: float = 1.0
+var last_find_time: float = 0.0
+var combo_timeout: float = 10.0  # Seconds before combo resets
 
 # Panning interaction variables
 var pan_timer: Timer = null
+var combo_timer: Timer = null
+
+# Visual feedback
+var feedback_label: Label = null
 
 # Signals
 signal gold_found(amount: int)
@@ -37,6 +47,21 @@ func _ready():
 	pan_timer.timeout.connect(_on_panning_complete)
 	add_child(pan_timer)
 
+	# Set up combo timer
+	combo_timer = Timer.new()
+	combo_timer.one_shot = true
+	combo_timer.timeout.connect(_on_combo_timeout)
+	add_child(combo_timer)
+
+	# Create feedback label for combos and special finds
+	feedback_label = Label.new()
+	feedback_label.position = Vector2(640, 200)
+	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	feedback_label.add_theme_font_size_override("font_size", 32)
+	feedback_label.add_theme_color_override("font_color", Color(1, 0.85, 0.3, 1))
+	feedback_label.modulate.a = 0.0
+	add_child(feedback_label)
+
 	# Connect to input events
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -48,13 +73,15 @@ func _initialize_game():
 	current_tool = "Basic Pan"
 	is_panning = false
 	panning_progress = 0.0
+	combo_count = 0
+	combo_multiplier = 1.0
 
 	# Update UI
 	_update_gold_display()
 	_update_tool_display()
 
-	# Set instructions
-	instruction_text.text = "Move to water source, press [E] to pan for gold"
+	# Set instructions with more engaging text
+	instruction_text.text = "🌊 Press [E] near water to pan for gold! Find combos for bonus rewards! 🌊"
 
 func _process(_delta: float):
 	## Called every frame to update game state
@@ -88,7 +115,7 @@ func _start_panning():
 
 	is_panning = true
 	panning_progress = 0.0
-	instruction_text.text = "Panning... Keep moving the pan!"
+	instruction_text.text = "⚡ Panning... Watch for the glimmer! ⚡"
 
 	# Start timer for panning duration
 	pan_timer.start(panning_duration)
@@ -101,23 +128,45 @@ func _on_panning_complete():
 	var gold_found_amount = _calculate_gold_yield()
 
 	if gold_found_amount > 0:
-		gold_count += gold_found_amount
-		emit_signal("gold_found", gold_found_amount)
+		# Update combo
+		combo_count += 1
+		combo_multiplier = 1.0 + (combo_count - 1) * 0.25  # 25% bonus per combo level
+		last_find_time = Time.get_ticks_msec() / 1000.0
 
-		# Update UI with success message
-		instruction_text.text = "Success! Found " + str(gold_found_amount) + " gold!"
+		# Apply combo multiplier
+		var bonus_gold = int(gold_found_amount * (combo_multiplier - 1.0))
+		var total_gold = gold_found_amount + bonus_gold
+
+		gold_count += total_gold
+		emit_signal("gold_found", total_gold)
+
+		# Update UI with success message and combo info
+		var message = "💰 Found " + str(gold_found_amount) + " gold!"
+		if combo_count > 1:
+			message += " (Combo x" + str(combo_count) + " = +" + str(bonus_gold) + " bonus!)"
+			_show_combo_feedback("🔥 COMBO x" + str(combo_count) + "! 🔥")
+		instruction_text.text = message
 
 		# Add some visual effect for gold discovery
-		_spawn_gold_particles(gold_found_amount)
+		_spawn_gold_particles(total_gold)
+
+		# Restart combo timer
+		combo_timer.start(combo_timeout)
 	else:
-		instruction_text.text = "No gold found. Try another spot!"
+		# Reset combo on miss
+		if combo_count > 0:
+			_show_combo_feedback("Combo broken!")
+			combo_count = 0
+			combo_multiplier = 1.0
+
+		instruction_text.text = "💦 No gold this time. Try again!"
 
 	# Update gold display
 	_update_gold_display()
 
 func _calculate_gold_yield() -> int:
 	## Calculates how much gold was found based on various factors
-	var base_chance = 0.4  # 40% base chance to find gold
+	var base_chance = 0.6  # Increased to 60% base chance to find gold (more fun!)
 
 	# Tool quality modifier (demo implementation)
 	var tool_modifier = 1.0
@@ -127,25 +176,57 @@ func _calculate_gold_yield() -> int:
 		tool_modifier = 1.5
 
 	# Random variation
-	var random_factor = randf_range(0.5, 1.5)
+	var random_factor = randf_range(0.8, 1.2)
 
 	# Calculate yield
 	if randf() < (base_chance * tool_modifier * random_factor):
-		# Found gold - determine amount
-		var min_gold = 1
-		var max_gold = 5
-		return randi_range(min_gold, max_gold)
+		# Found gold - determine amount (weighted toward better finds)
+		var roll = randf()
+		if roll < 0.05:  # 5% chance for jackpot
+			return randi_range(10, 20)
+		elif roll < 0.20:  # 15% chance for good find
+			return randi_range(5, 10)
+		else:  # 80% chance for normal find
+			return randi_range(2, 5)
 	else:
 		# No gold found
 		return 0
 
 func _spawn_gold_particles(gold_amount: int):
 	## Spawns visual particles when gold is found
-	# This is a placeholder implementation
-	# In a real implementation, this would create particle effects
+	# Create a CPUParticles2D for gold sparkles
+	var particles = CPUParticles2D.new()
+	particles.position = Vector2(640, 360)  # Center of screen
+	particles.amount = gold_amount * 5  # More gold = more particles
+	particles.lifetime = 1.5
+	particles.one_shot = true
+	particles.explosiveness = 0.8
+	particles.emission_shape = CPUParticles2D.EMISSION_SHAPE_SPHERE
+	particles.emission_sphere_radius = 50.0
 
-	# For demo purposes, we'll just print a message
-	print("Gold particles spawned for: " + str(gold_amount) + " gold")
+	# Gold color gradient
+	particles.color = Color(1.0, 0.85, 0.3, 1.0)
+
+	# Movement
+	particles.direction = Vector2(0, -1)
+	particles.spread = 45.0
+	particles.gravity = Vector2(0, 200)
+	particles.initial_velocity_min = 100.0
+	particles.initial_velocity_max = 200.0
+
+	# Size and scale
+	particles.scale_amount_min = 4.0
+	particles.scale_amount_max = 8.0
+
+	add_child(particles)
+	particles.emitting = true
+
+	# Clean up after animation
+	await get_tree().create_timer(2.0).timeout
+	if particles and is_instance_valid(particles):
+		particles.queue_free()
+
+	print("✨ Gold particles spawned for: " + str(gold_amount) + " gold")
 
 func _update_gold_display():
 	## Updates the gold count display
@@ -196,3 +277,23 @@ func _on_panning_area_entered(body):
 func get_current_tool_unique() -> String:
 	## Returns the current tool name
 	return current_tool
+
+func _show_combo_feedback(text: String):
+	## Shows visual feedback for combos
+	if feedback_label:
+		feedback_label.text = text
+		feedback_label.modulate.a = 0.0
+
+		# Animate the feedback text
+		var tween = create_tween()
+		tween.tween_property(feedback_label, "modulate:a", 1.0, 0.2)
+		tween.tween_property(feedback_label, "position:y", feedback_label.position.y - 50, 0.8)
+		tween.tween_property(feedback_label, "modulate:a", 0.0, 0.3)
+		tween.tween_callback(func(): feedback_label.position.y = 200)
+
+func _on_combo_timeout():
+	## Called when combo timer expires
+	if combo_count > 0:
+		_show_combo_feedback("Combo timeout!")
+		combo_count = 0
+		combo_multiplier = 1.0
