@@ -49,32 +49,6 @@ orientation/allow_vertical=true
 orientation/allow_vertical_flipped=true
 window/drop_files_enabled=true
 
-[input_mapping]
-
-ui_up=[Object(InputEventKey).keycode(KEY_W)], [Object(InputEventKey).keycode(KEY_UP)], [Object(InputEventKey).keycode(KEY_KP_8)]
-ui_down=[Object(InputEventKey).keycode(KEY_S)], [Object(InputEventKey).keycode(KEY_DOWN)], [Object(InputEventKey).keycode(KEY_KP_2)]
-ui_left=[Object(InputEventKey).keycode(KEY_A)], [Object(InputEventKey).keycode(KEY_LEFT)], [Object(InputEventKey).keycode(KEY_KP_4)]
-ui_right=[Object(InputEventKey).keycode(KEY_D)], [Object(InputEventKey).keycode(KEY_RIGHT)], [Object(InputEventKey).keycode(KEY_KP_6)]
-ui_select=[Object(InputEventKey).keycode(KEY_ENTER)], [Object(InputEventKey).keycode(KEY_SPACE)]
-ui_cancel=[Object(InputEventKey).keycode(KEY_ESCAPE)], [Object(InputEventKey).keycode(KEY_BACKSPACE)]
-ui_focus_next=[Object(InputEventKey).keycode(KEY_TAB)]
-ui_focus_prev=[Object(InputEventKey).keycode(KEY_SHIFT)].shift=true, [Object(InputEventKey).keycode(KEY_TAB)]
-ui_accept=[Object(InputEventKey).keycode(KEY_SPACE)], [Object(InputEventKey).keycode(KEY_ENTER)]
-ui_page_up=[Object(InputEventKey).keycode(KEY_PAGEUP)]
-ui_page_down=[Object(InputEventKey).keycode(KEY_PAGEDOWN)]
-ui_home=[Object(InputEventKey).keycode(KEY_HOME)]
-ui_end=[Object(InputEventKey).keycode(KEY_END)]
-ui_panning_left=[Object(InputEventKey).keycode(KEY_Q)]
-ui_panning_right=[Object(InputEventKey).keycode(KEY_E)]
-interact=[Object(InputEventKey).keycode(KEY_E)]
-pan_tilt_left=[Object(InputEventKey).keycode(KEY_J)]
-pan_tilt_right=[Object(InputEventKey).keycode(KEY_K)]
-pan_shake=[Object(InputEventKey).keycode(KEY_SPACE)]
-end_panning=[Object(InputEventKey).keycode(KEY_ESCAPE)]
-exit_panning=[Object(InputEventKey).keycode(KEY_ESCAPE)]
-pause=[Object(InputEventKey).keycode(KEY_ESCAPE)]
-ui_debug_gold=[Object(InputEventKey).keycode(KEY_F1)]
-
 [rendering]
 
 quality/2d/use_pixel_snap=true
