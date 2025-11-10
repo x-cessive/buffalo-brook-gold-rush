@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://buffalo_brook_main_scene"]
+
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/main_game.tscn" id="2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="MainGame" type="Node2D" parent="."]
+# Instance the main game scene
+# This would be replaced with: instance_from_ext_resource("2") in actual Godot
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="HUD" type="Control" parent="GameUI"]
+anchor_right = 1.0
+anchor_bottom = 0.0
+
+[node name="GoldCounter" type="Label" parent="GameUI/HUD"]
+position = Vector2(20, 20)
+text = "Gold: 0"
+theme_override_font_sizes/font_size = 24
+
+[node name="ToolIndicator" type="Label" parent="GameUI/HUD"]
+position = Vector2(20, 60)
+text = "Tool: Basic Pan"
+theme_override_font_sizes/font_size = 20
+
+[node name="Instructions" type="Label" parent="GameUI/HUD"]
+position = Vector2(20, 100)
+text = "Controls:\nWASD/Arrow Keys: Move\nE: Interact with water to pan for gold\nESC: Pause game"
+theme_override_font_sizes/font_size = 16
+
+[node name="PauseMenu" type="Panel" parent="GameUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+pivot_offset = Vector2(150, 100)
+size = Vector2(300, 200)
+
+[node name="PauseLabel" type="Label" parent="GameUI/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.3
+pivot_offset = Vector2(0, 0)
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+
+[node name="ResumeButton" type="Button" parent="GameUI/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.6
+pivot_offset = Vector2(50, 0)
+size = Vector2(100, 30)
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="GameUI/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.8
+pivot_offset = Vector2(50, 0)
+size = Vector2(100, 30)
+text = "Main Menu"
+
+[node name="GameTitle" type="Label" parent="GameUI"]
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.15
+pivot_offset = Vector2(0, 0)
+text = "Buffalo Brook Gold Rush"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 36
+
+[connection signal="pressed" from="GameUI/PauseMenu/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="GameUI/PauseMenu/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+
+[script]
+
+func _on_ResumeButton_pressed():
+	# Resume the game
+	get_tree().paused = false
+	$GameUI/PauseMenu.visible = false
+
+func _on_MainMenuButton_pressed():
+	# Return to main menu
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+# Set the main game script
+script = ExtResource("1")

@@ -1,0 +1,152 @@
+# Buffalo Brook Gold Rush - Godot Project Settings for Older GPUs
+# Optimized for NVIDIA Quadro 2000M (Fermi architecture)
+
+## PROJECT SETTINGS OPTIMIZATIONS
+
+### Rendering Settings
+
+1. **Rendering > Quality > MSAA**
+   - Set to "Disabled" (MSAA is expensive on older GPUs)
+
+2. **Rendering > Quality > Shadows > Directional Shadow Atlas Size**
+   - Set to 512x512 or 1024x1024 (smaller = better performance)
+
+3. **Rendering > Quality > Reflection Atlass**
+   - Set size to 256x256 or 512x512 (reduce from 2048x2048 default)
+
+4. **Rendering > Quality > Textures > Use Half Float**
+   - Enable (saves memory on older GPUs)
+
+5. **Rendering > Quality > Depth Buffer > Use 24 Bit Depth**
+   - Disable (16-bit is faster on older hardware)
+
+6. **Rendering > Quality > Lighting > Max Lights Per Cell**
+   - Reduce to 4 (from default 8)
+
+7. **Rendering > Quality > Lighting > Max Reflections Per Cell**
+   - Reduce to 2 (from default 4)
+
+8. **Rendering > Quality > Subsurface Scattering**
+   - Set to "Disabled"
+
+9. **Rendering > Quality > Screen Space Effects**
+   - Disable all (SSAO, SSIL, etc.)
+
+10. **Rendering > Environment > Default Clear Color**
+    - Use darker color (e.g., #2d3338) to reduce rendering workload
+
+### Physics Settings
+
+11. **Physics > Common > Physics FPS**
+    - Set to 30 or 60 (not 120+)
+
+12. **Physics > 2D > Motion Fix Enabled**
+    - Disable (saves CPU processing)
+
+13. **Physics > 3D > Max Penetration Bias**
+    - Increase to 0.2 (from 0.1) to reduce collision processing
+
+14. **Physics > 3D > Bounce Threshold Velocity**
+    - Increase to 2.0 (from 1.0) to reduce processing for low-impact collisions
+
+### Memory Management
+
+15. **Render > Memory > Max Cache Size**
+    - Set to lower value (e.g., 128 MB) to preserve VRAM
+
+16. **Rendering > Textures > Streaming > Loading Threads**
+    - Reduce to 1 thread (older CPUs handle fewer threads better)
+
+### Audio Settings
+
+17. **Audio > Drivers > Channels**
+    - Limit to 16-32 (fewer channels = less CPU usage)
+
+18. **Audio > Mix Rate**
+    - Set to 22050 Hz instead of 44100 Hz (reduces processing)
+
+### Display Settings
+
+19. **Display > Window > Stretch** 
+    - Mode: "Disabled" or "Viewport" (not "2D" which can add overhead)
+
+20. **Display > Window > Video Driver**
+    - Use "GLES3" for older hardware compatibility
+
+21. **Display > Window > V-Sync**
+    - Set to "Disabled" for performance (let engine handle frame pacing)
+
+## SCENE-LEVEL OPTIMIZATIONS
+
+### For Water Shimmer Effects:
+- Reduce particle count in water areas significantly
+- Use shader-based water effects instead of particle systems when possible
+- Limit animated water tiles to essential areas only
+
+### For Gold Panning Effects:
+- Use CPU-based particles for gold sparkles instead of GPU particles
+- Implement object pooling for gold particles to reduce allocation
+- Limit simultaneous sparkle effects to 5-10 maximum
+
+### For Campfire Effects:
+- Use additive blending with simple sprites instead of complex particles
+- Implement occlusion culling to disable fire glow when not visible
+- Limit dynamic lighting from fires to only nearby objects
+
+## PERFORMANCE MONITORING
+
+### Essential Monitors:
+- FPS: Keep above 30 FPS consistently
+- Memory usage: Monitor for leaks
+- Draw calls: Aim for under 1000 calls per frame
+- Vertices processed: Keep to minimum required
+
+### Testing Guidelines:
+- Test with "Visual Profile" enabled to identify bottlenecks
+- Monitor VRAM usage during gameplay
+- Check for performance drops in complex scenes
+
+## IMPORT SETTINGS FOR ASSETS
+
+### Sprites:
+- Use POT (Power of Two) dimensions (256x256, 512x512, 1024x1024)
+- Compress with S3TC/DXT format
+- Enable "Lossy Compress" at 70-80% quality
+
+### UI Images:
+- Use uncompressed RGBA for sharp UI elements
+- Keep UI atlas below 1024x1024 when possible
+
+### Audio:
+- Export audio at 22050Hz for SFX
+- Use OGG format for music
+- Limit simultaneous audio channels
+
+## ADDITIONAL CONSIDERATIONS FOR QUADRO 2000M
+
+The NVIDIA Quadro 2000M has these limitations:
+- 2GB of shared memory (split with system RAM)
+- Fermi architecture with limited shader units
+- Compute capability 2.1 (older compute capabilities)
+- Limited fill rate compared to modern GPUs
+
+### Compensating Strategies:
+1. **Reduce draw distance** to minimize objects being rendered
+2. **Lod (Level Of Detail)** - Create simplified models for distant objects
+3. **Occlusion culling** - Hide objects not visible to the camera
+4. **Static batching** - Combine static objects into single meshes where possible
+5. **LOD system** - Implement automatic LOD for complex objects
+
+### Recommended Target Specifications:
+- Maintain 30 FPS average across all scenes
+- Keep under 20,000 polygons on screen at once
+- Limit texture memory usage to under 1.5GB
+- Maintain under 1000 draw calls per frame
+
+### Testing Checklist:
+- [ ] Game runs at 30+ FPS in typical gameplay
+- [ ] No texture popping or loading issues
+- [ ] Particle effects don't cause FPS drops  
+- [ ] Audio doesn't cut out or stutter
+- [ ] Memory usage stays stable over long sessions
+- [ ] No visual artifacts on older hardware

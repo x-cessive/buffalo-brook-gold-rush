@@ -1,0 +1,168 @@
+# Buffalo Brook Gold Rush - Export Instructions
+
+## Prerequisites
+
+Before exporting your game, ensure you have:
+
+1. **Godot Engine 4.x installed** (latest stable version recommended)
+2. **Android SDK** (for Android builds): Android Studio with Command Line Tools
+3. **Windows Build Tools** (for Windows builds): MinGW or MSVC
+4. **Linux Packaging Tools** (for Linux builds): zip utility
+
+## Export Configuration
+
+The export presets are already configured in the `export_presets.cfg` file:
+
+- Preset 0: Linux/X11
+- Preset 1: Windows Desktop  
+- Preset 2: Android
+
+## Building the Game
+
+### Method 1: Using Build Scripts
+
+1. Make the scripts executable:
+   ```bash
+   chmod +x build_*.sh
+   ```
+
+2. Run the master build script:
+   ```bash
+   ./build_master.sh
+   ```
+   
+   Or run individual platform scripts:
+   ```bash
+   ./build_linux.sh
+   ./build_windows.sh
+   ./build_android.sh
+   ```
+
+### Method 2: Using Godot Editor
+
+1. Open the project in Godot Editor
+2. Go to **Project → Export**
+3. Select your target platform
+4. Configure export settings if needed
+5. Click "Export Project" and choose destination
+
+## Platform-Specific Notes
+
+### Linux
+- The Linux build creates an executable file (`.x86_64`)
+- Requires GLIBC 2.17+ and OpenGL 3.3+ compatible graphics driver
+- Tested on Ubuntu 20.04+, Fedora 35+, and similar distributions
+
+### Windows
+- The Windows build creates a standalone `.exe` file
+- Requires Windows 7 or later (64-bit recommended)
+- No additional runtime libraries required
+
+### Android
+- The Android build creates an APK file
+- Minimum SDK version: 21 (Android 5.0)
+- Target SDK version: Latest stable
+- Requires properly configured Android Build Templates
+
+## Android-Specific Setup
+
+To build for Android, you need to:
+
+1. Install Android Studio and Command Line Tools
+2. Set up `ANDROID_HOME` environment variable
+3. Configure Android build templates in Godot:
+   - Place Android build templates in `~/.godot/templates/[version]/`
+   - Or configure custom template path in Editor Settings
+
+Example of setting up Android environment:
+```bash
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
+
+## File Locations
+
+Built executables will be placed in:
+- Linux: `./builds/linux/`
+- Windows: `./builds/windows/`  
+- Android: `./builds/android/`
+
+Zip packages will be created in the main project directory:
+- `Buffalo_Brook_Gold_Rush_Linux.zip`
+- `Buffalo_Brook_Gold_Rush_Windows.zip`
+- `buffalo_brook_gold_rush.apk`
+
+## Troubleshooting
+
+### Common Issues:
+
+1. **Godot not found**: Make sure Godot is in your PATH:
+   ```bash
+   export PATH=/path/to/godot:$PATH
+   ```
+
+2. **Android build fails**: Ensure Android SDK is properly configured:
+   ```bash
+   sdkmanager --install "build-tools;33.0.0" "platforms;android-33"
+   ```
+
+3. **Insufficient disk space**: Ensure at least 500MB free space for building
+
+4. **Permission errors**: Make sure all build scripts have execute permissions
+
+### Verifying Builds:
+
+1. Test Linux build locally:
+   ```bash
+   ./builds/linux/buffalo_brook_gold_rush.x86_64
+   ```
+
+2. Check Windows build with Wine (if on Linux):
+   ```bash
+   wine ./builds/windows/BuffaloBrookGoldRush.exe
+   ```
+
+3. Install Android APK on device/emulator:
+   ```bash
+   adb install ./buffalo_brook_gold_rush.apk
+   ```
+
+## Performance Considerations
+
+For older hardware targets (like NVIDIA Quadro 2000M), this build uses:
+- Optimized texture compression (S3TC/DXT)
+- Reduced particle count limits
+- Simplified physics calculations
+- 30 FPS cap for stability
+
+## Version Management
+
+The build automatically uses version numbers from the export presets:
+- File version: 1.0.0
+- Product version: 1.0.0
+
+To update versions, modify the `export_presets.cfg` file or adjust through the Godot Editor export dialog.
+
+## Release Checklist
+
+Before distributing your game:
+
+- [ ] Test on target hardware specifications
+- [ ] Verify all assets are properly included
+- [ ] Check build size (should be under 100MB for all platforms)
+- [ ] Test install and launch process
+- [ ] Verify all core functionality works
+- [ ] Check for any debug information removal
+- [ ] Package builds in appropriate distribution formats
+
+## Customization
+
+To customize the build:
+
+1. Modify `export_presets.cfg` for different export options
+2. Update icon in the project's assets
+3. Change company name and product information
+4. Adjust version numbers as needed
+
+The build scripts can be customized by editing the shell scripts in the main directory.

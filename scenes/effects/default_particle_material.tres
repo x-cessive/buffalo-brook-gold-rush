@@ -1,0 +1,18 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=1 format=3 uid="uid://c9uq4j1n238r9"]
+
+[resource]
+albedo_color = Color(1, 1, 0, 1)
+emission_shape = 0
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_min = 0.2
+scale_max = 0.5
+scale_curve = Curve("uid://c9uq4j1n238r10")
+hue_variation_curve = Curve("uid://c9uq4j1n238r11")
+linear_velocity_min = 0.0
+linear_velocity_max = 0.0
+angular_velocity_track = true
+scale_track = true
+hue_variation_track = true

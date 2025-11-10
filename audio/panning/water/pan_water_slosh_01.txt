@@ -1,0 +1,3 @@
+# Placeholder file for pan_water_slosh_01.wav
+# In a real implementation, this would be an actual WAV audio file
+# This is just a placeholder to show the file structure

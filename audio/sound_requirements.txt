@@ -1,0 +1,210 @@
+# Buffalo Brook Gold Rush - Complete Sound Set
+
+## Sound Requirements and Organization
+
+### Sound Categories Summary
+
+#### 1. Gold Panning Sounds
+**Purpose:** Create satisfying feedback during the core gameplay mechanic
+- Water manipulation (sloshing, swirling, tilting)
+- Particle separation (sediment washing, particles settling)
+- Discovery/Success (gold clinking, discovery chimes)
+- Failure sounds (empty pan sounds)
+
+#### 2. Environmental Sounds
+**Purpose:** Create immersive atmosphere that reflects Vermont's natural environment
+- Water loops (brook, stream, waterfall sounds)
+- Wildlife (birds, insects, frogs native to Vermont)
+- Weather effects (wind, rain, thunder)
+- Seasonal variations (summer insects, winter quiet)
+
+#### 3. Footsteps Sounds
+**Purpose:** Provide player movement feedback on different surfaces
+- Natural surfaces (dirt, gravel, leaves, grass)
+- Water interactions (puddles, shallow water)
+- Rock/sand surfaces
+- Special movement (shuffling, landing)
+
+#### 4. Tools Sounds
+**Purpose:** Provide feedback during tool usage and maintenance
+- Pan interactions (clanking, scraping, tapping)
+- Shovel/digging tools (digging, scraping, dropping)
+- Sieves/meshes (shaking, sediment falling)
+- General tool handling (picking up, placing down, maintenance)
+
+### Recommended File Organization
+
+```
+audio/
+├── panning/
+│   ├── water/
+│   │   ├── pan_water_slosh_01.wav
+│   │   ├── pan_water_slosh_02.wav
+│   │   ├── pan_water_slosh_03.wav
+│   │   ├── pan_swirl_01.wav
+│   │   ├── pan_tilt_01.wav
+│   │   └── pan_tilt_02.wav
+│   ├── particles/
+│   │   ├── sediment_wash_01.wav
+│   │   ├── sediment_wash_02.wav
+│   │   ├── particles_shake_01.wav
+│   │   └── particles_settle_01.wav
+│   └── success/
+│       ├── gold_clink_01.wav
+│       ├── gold_clink_02.wav
+│       ├── gold_discovery_01.wav
+│       ├── gold_discovery_02.wav
+│       ├── nugget_drop_01.wav
+│       ├── pan_empty_01.wav
+│       └── pan_empty_02.wav
+├── environment/
+│   ├── water_loops/
+│   │   ├── brook_stream_loop_01.wav
+│   │   ├── brook_stream_loop_02.wav
+│   │   ├── brook_stream_loop_03.wav
+│   │   └── waterfall_small_loop_01.wav
+│   ├── wildlife/
+│   │   ├── bird_willow_titmouse_01.wav
+│   │   ├── bird_willow_titmouse_02.wav
+│   │   ├── bird_song_sparrow_01.wav
+│   │   ├── wood_pecker_tapping_01.wav
+│   │   ├── wood_pecker_tapping_02.wav
+│   │   ├── insect_cicada_01.wav
+│   │   ├── insect_cricket_01.wav
+│   │   ├── insect_cricket_02.wav
+│   │   ├── frog_pacific_chorus_01.wav
+│   │   └── frog_pacific_chorus_02.wav
+│   ├── weather/
+│   │   ├── wind_light_01.wav
+│   │   ├── wind_medium_01.wav
+│   │   ├── rain_light_01.wav
+│   │   ├── rain_medium_01.wav
+│   │   ├── rain_heavy_01.wav
+│   │   ├── thunder_distant_01.wav
+│   │   └── thunder_distant_02.wav
+│   └── ambience/
+│       ├── rustle_leaves_01.wav
+│       └── rustle_leaves_02.wav
+├── footsteps/
+│   ├── surfaces/
+│   │   ├── footstep_gravel_01.wav
+│   │   ├── footstep_gravel_02.wav
+│   │   ├── footstep_gravel_03.wav
+│   │   ├── footstep_gravel_04.wav
+│   │   ├── footstep_dirt_01.wav
+│   │   ├── footstep_dirt_02.wav
+│   │   ├── footstep_leaves_01.wav
+│   │   ├── footstep_leaves_02.wav
+│   │   ├── footstep_grass_01.wav
+│   │   ├── footstep_grass_02.wav
+│   │   ├── footstep_mud_01.wav
+│   │   ├── footstep_mud_02.wav
+│   │   ├── footstep_water_puddle_01.wav
+│   │   ├── footstep_water_puddle_02.wav
+│   │   ├── footstep_stone_01.wav
+│   │   ├── footstep_stone_02.wav
+│   │   ├── footstep_sand_01.wav
+│   │   └── footstep_sand_02.wav
+│   └── movement/
+│       ├── shuffle_stop_01.wav
+│       ├── shuffle_slow_01.wav
+│       ├── landing_soft_01.wav
+│       └── landing_medium_01.wav
+└── tools/
+    ├── pan/
+    │   ├── pan_metal_clank_01.wav
+    │   ├── pan_metal_clank_02.wav
+    │   ├── pan_scrape_stone_01.wav
+    │   ├── pan_scrape_stone_02.wav
+    │   ├── pan_drop_01.wav
+    │   ├── pan_lift_01.wav
+    │   ├── pan_tap_edge_01.wav
+    │   └── pan_tap_edge_02.wav
+    ├── shovel/
+    │   ├── shovel_dig_dirt_01.wav
+    │   ├── shovel_dig_dirt_02.wav
+    │   ├── shovel_dig_rock_01.wav
+    │   ├── shovel_scrape_01.wav
+    │   ├── shovel_drop_dirt_01.wav
+    │   ├── shovel_metal_clink_01.wav
+    │   └── shovel_strike_stone_01.wav
+    ├── sieve/
+    │   ├── sieve_shake_coarse_01.wav
+    │   ├── sieve_shake_fine_01.wav
+    │   ├── sieve_sediment_fall_01.wav
+    │   └── sieve_scrape_01.wav
+    └── general/
+        ├── tool_box_open_01.wav
+        ├── tool_box_close_01.wav
+        ├── tool_metal_scrape_01.wav
+        ├── tool_rustle_pockets_01.wav
+        ├── tool_place_down_01.wav
+        ├── tool_pick_up_01.wav
+        ├── tool_adjust_grip_01.wav
+        ├── tool_clean_metal_01.wav
+        ├── tool_oil_spray_01.wav
+        └── tool_tap_check_01.wav
+```
+
+### Recommended Audio Bus Setup
+
+Create the following audio buses in Godot for better sound mixing:
+
+1. **Master** (default bus)
+2. **SFX** (for all sound effects)
+3. **Music** (for any background music)
+4. **Ambience** (for environmental loops)
+
+### Sound Implementation Priority
+
+#### High Priority (Essential for Gameplay)
+- `pan_water_slosh_01.wav` - Core panning sound
+- `gold_clink_01.wav` - Success feedback
+- `gold_discovery_01.wav` - Positive reinforcement
+- `brook_stream_loop_01.wav` - Environmental foundation
+- `footstep_gravel_01.wav` - Movement feedback
+
+#### Medium Priority (Significant Enhancement)
+- Other panning sounds (tilting, swirling, particle separation)
+- Wildlife sounds (birds, insects for life)
+- Other environmental loops (wind, leaves rustling)
+- Additional footsteps for different surfaces
+
+#### Low Priority (Polish/Optional)
+- Weather variations (rain, thunder)
+- Tool maintenance sounds
+- Seasonal variations
+- Detailed wildlife interactions
+
+### Free Sound Sources and Attribution
+
+#### Primary Source: Freesound.org
+Many of the recommended sounds can be found on Freesound.org with appropriate Creative Commons licenses.
+
+#### Attribution Template
+For sounds requiring attribution, include in your game's credits or attribution file:
+```
+Sound effects obtained from Freesound.org:
+- pan_water_slosh_01.wav by [creator_username] (License: CC BY 3.0)
+- brook_stream_loop_01.wav by [creator_username] (License: CC0)
+[Add for each sound used]
+```
+
+#### Alternative Attribution-Free Source: YouTube Audio Library
+For attribution-free sounds, consider the YouTube Audio Library which offers many nature and ambient sounds that are completely free to use.
+
+### Audio Quality Recommendations
+
+- **Format**: Use WAV for high-quality sounds, OGG for longer loops to save space
+- **Sample Rate**: 44.1kHz (standard for games)
+- **Bit Depth**: 16-bit (standard quality)
+- **Looping**: Ensure ambient loops are seamless
+- **Volume**: Normalize sounds to -20dB to -15dB range
+
+### Seasonal Variations
+
+Consider adding seasonal variations to environmental sounds:
+- **Spring**: Bird activity, flowing water from snowmelt
+- **Summer**: Insect activity, gentle breezes
+- **Fall**: Leaves rustling, different bird calls
+- **Winter**: Reduced wildlife activity, wind through bare trees

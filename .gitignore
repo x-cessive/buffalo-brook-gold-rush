@@ -1,0 +1,38 @@
+# Godot-specific ignores
+*.import
+*.import_time
+*.import_md5
+*.import_meta
+*.import_hash
+*.import_state
+*.import_uuid
+*.import_version
+*.import_config
+*.import_settings
+
+# Godot project-specific
+.project
+.godot/
+.addons/
+.user
+.cache
+.local
+
+# Exported game files
+export/
+builds/
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
