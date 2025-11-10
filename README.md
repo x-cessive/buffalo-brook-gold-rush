@@ -51,6 +51,23 @@ Buffalo Brook Gold Rush is an immersive gold panning simulation game that brings
 
 ## Getting Started
 
+### Quick Install (Linux - Manjaro/Arch)
+
+**Just want to play?** Use our one-command installer:
+
+```bash
+git clone https://github.com/x-cessive/Buffalo-Brook-Gold-Rush.git
+cd Buffalo-Brook-Gold-Rush
+git checkout claude/game-will-fix-011CUyexuokcTJKMP3gARsV9
+./install.sh
+```
+
+Then launch with: `buffalo-brook-gold-rush`
+
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
+
+---
+
 ### Prerequisites
 
 - **Godot Engine 4.0+** - [Download here](https://godotengine.org/download)
