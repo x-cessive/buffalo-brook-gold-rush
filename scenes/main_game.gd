@@ -56,16 +56,20 @@ func _handle_input():
 func _try_to_pan():
 	## Attempts to start a panning action if player is near water
 	if is_panning:
+		print("Already panning!")
 		return
 
 	# Check if player is near water (simple distance check)
 	var water_pos = Vector2(640, 500)  # Position of water area
 	var distance = player.position.distance_to(water_pos)
 
-	if distance < 150:  # Within range of water
+	print("Player position: " + str(player.position))
+	print("Distance to water: " + str(distance))
+
+	if distance < 250:  # Within range of water (increased range)
 		_start_panning()
 	else:
-		print("Too far from water!")
+		print("Too far from water! Move closer (distance: " + str(int(distance)) + ")")
 
 func _start_panning():
 	## Starts the panning action
