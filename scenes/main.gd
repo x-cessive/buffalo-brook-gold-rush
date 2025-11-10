@@ -11,27 +11,18 @@ var tool_indicator: Label = null
 func _ready():
 	## Called when the node enters the scene tree for the first time
 	print("Buffalo Brook Gold Rush starting...")
-	
+
 	# Find UI elements
-	pause_menu = $GameUI/PauseMenu
 	gold_counter = $GameUI/HUD/GoldCounter
 	tool_indicator = $GameUI/HUD/ToolIndicator
-	
-	# Connect pause menu buttons
-	$GameUI/PauseMenu/ResumeButton.pressed.connect(_on_resume_pressed)
-	$GameUI/PauseMenu/MainMenuButton.pressed.connect(_on_main_menu_pressed)
-	
-	# Initially hide pause menu
-	pause_menu.visible = false
-	
+
 	# Start the game
 	start_game()
 
 func _process(_delta: float):
 	## Called every frame
-	# Handle pause input
-	if Input.is_action_just_pressed("pause"):
-		toggle_pause_menu()
+	# Pause functionality disabled
+	pass
 
 func start_game():
 	## Starts a new game session
