@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://-e2ggu7aclw0l"]
+[gd_scene load_steps=4 format=3 uid="uid://-e2ggu7aclw0l"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/sprites/gui/gold_icon.png" id="2"]
 [ext_resource type="Texture2D" path="res://assets/sprites/tools/basic_pan.png" id="3"]
+
+[sub_resource type="ConvexPolygonShape2D" id="1"]
+points = PoolVector2Array(-100, 100, 100, 100, 100, -100, -100, -100)
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1")
@@ -65,9 +68,3 @@ vertical_alignment = 0
 [node name="PanTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-
-[resource_type="ConvexPolygonShape2D" uid="uid://b9sz2hgs37qt5"]
-points = PoolVector2Array(-100, 100, 100, 100, 100, -100, -100, -100)
-
-[connections]
-connect("body_entered", "MainGame", "_on_panning_area_entered")

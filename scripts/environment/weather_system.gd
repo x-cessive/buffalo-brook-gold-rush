@@ -1,3 +1,5 @@
+extends Node
+
 ## Global weather system for Buffalo Brook Gold Rush
 ## Manages weather states and their effects on gameplay
 
@@ -34,6 +36,11 @@ class WeatherData:
 		visibility_range = 100.0  # Full visibility
 		precipitation_intensity = 0.0
 
+<<<<<<< Updated upstream
+=======
+## Global weather system
+
+>>>>>>> Stashed changes
 # Signals for weather events
 signal weather_changed(old_weather, new_weather)
 signal weather_transition_started(from_weather, to_weather, transition_time)

@@ -1,18 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
 
 config/name="Buffalo Brook Gold Rush"
+<<<<<<< Updated upstream
 # config/icon="res://icon.png"
 run/main_scene="res://scenes/menu.tscn"
+=======
+>>>>>>> Stashed changes
 config/version="1.0.0"
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.5")
+config/icon="res://icon.png"
 config/copyright="2023 Your Company"
 config/min_platform_version_android=1
 config/macos_app_category="public.app-category.games"
 config/file_associations={}
 config/export_cache_mode=2
-run/disable_stdout=false
-run/disable_stderr=false
+
+[audio]
+
+driver="dummy"
+output_latency=0.05
+mix_rate=0
+enable_audio_input=false
+fix_rate=44100
+video_delay_compensation_ms=0
+updater_threads=0
 
 [debug]
 
@@ -29,14 +51,13 @@ gdscript/unsafe_allow_signal_emit_on_initializer_list=false
 
 [display]
 
+window/stretch/mode="2d"
 window/width=1280
 window/height=720
 window/resizable=true
 window/fullscreen=false
 window/borderless=false
 window/always_on_top=false
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
 preview_3d_default_lighting_mode="default"
 window/vsync_sync_to_video=false
 window/hidpi/theme_scaling_override_enabled=false
@@ -49,6 +70,405 @@ orientation/allow_vertical=true
 orientation/allow_vertical_flipped=true
 window/drop_files_enabled=true
 
+<<<<<<< Updated upstream
+=======
+[editor]
+
+main_run_args=""
+scene_tabs/restore_scenes_on_load=true
+scene_tabs/limit_num_scene_tabs=10
+scene_tabs/restore_groups_on_load=true
+preferences/zoom_with_mouse_wheel=true
+preferences/show_script_methods=true
+preferences/show_script_categories=true
+preferences/show_script_unused_functions=true
+preferences/show_script_unused_signals=true
+preferences/show_script_inheritance_visualizer=true
+preferences/script_search_method=0
+preferences/script_search_inherits=0
+preferences/script_search_fuzzy=0
+preferences/color_picker_control_hue_grabber_width=20.0
+preferences/color_picker_control_sliders_height=16.0
+preferences/color_picker_control_preview_height=20.0
+preferences/color_picker_control_height=180.0
+preferences/warnings/disable_all=false
+preferences/warnings/treat_warnings_as_errors=false
+preferences/mono_builds/assembly_reload_threshold=1
+preferences/text_editor/show_line_numbers=true
+preferences/text_editor/show_breakpoint_gutter=true
+preferences/text_editor/show_minimap=true
+preferences/text_editor/minimap_width=80
+preferences/text_editor/show_linenumber_gutter=true
+preferences/text_editor/show_fold_gutter=true
+preferences/text_editor/highlight_all_occurrences=true
+preferences/text_editor/shell_commands_escape_args=true
+preferences/text_editor/script_temperature_enabled=true
+preferences/text_editor/script_temperature_hot_degree=4
+preferences/text_editor/script_temperature_warn_degree=3
+preferences/text_editor/script_temperature_history_size=15
+preferences/text_editor/trim_trailing_whitespace_on_save=false
+preferences/text_editor/add_trailing_newline_on_save=false
+preferences/text_editor/autodetect_indent=false
+preferences/text_editor/detab_ident=true
+preferences/text_editor/scroll_past_end_of_file=true
+preferences/text_editor/syntax_highlighting=true
+preferences/text_editor/highlight_syntax_strings=true
+preferences/text_editor/highlight_current_line=true
+preferences/text_editor/highlight_matching_brackets=true
+preferences/text_editor/highlight_matching_result_actions=true
+preferences/text_editor/show_indent_guides=true
+preferences/text_editor/show_line_length_guideline=false
+preferences/text_editor/line_length_guideline_column=80
+preferences/text_editor/indent_size=4
+preferences/text_editor/autosave_interval_secs=0
+preferences/text_editor/color_theme="default"
+preferences/text_editor/script_temperature_pass=0
+preferences/text_editor/auto_brace_complete=true
+preferences/text_editor/restore_scripts_and_logs_on_load=true
+preferences/text_editor/autoscroll_cursor_to_center=false
+preferences/text_editor/unfold_when_typing=true
+preferences/text_editor/constant_auto_replace=true
+preferences/text_editor/completion/max_width=60
+preferences/text_editor/completion/max_viewport_width_percentage=0.5
+preferences/text_editor/completion/max_viewport_height_percentage=0.5
+preferences/text_editor/completion/full_keyword_statement_completion=true
+preferences/text_editor/completion/autocomplete_enums=true
+preferences/text_editor/completion/autocomplete_signals=true
+preferences/text_editor/completion/autocomplete_keywords=true
+preferences/text_editor/completion/autocomplete_types=false
+preferences/text_editor/completion/autocomplete_attributes=false
+preferences/text_editor/completion/autocomplete_optional=false
+preferences/text_editor/completion/autocomplete_classnames=true
+preferences/text_editor/completion/autocomplete_filenames=false
+preferences/text_editor/completion/autocomplete_member_access=false
+preferences/text_editor/completion/autocomplete_global_functions=false
+preferences/text_editor/completion/autocomplete_snippets=true
+preferences/text_editor/completion/autocomplete_placeholder_pairing=true
+preferences/text_editor/completion/autocomplete_case_sensitive=0
+preferences/text_editor/completion/autocomplete_custom_label_enabled=false
+preferences/text_editor/completion/autocomplete_hint_letter_case=0
+preferences/text_editor/completion/autocomplete_hint_text_enabled=true
+preferences/text_editor/completion/autocomplete_hint_tooltip_enabled=true
+preferences/text_editor/completion/autocomplete_hint_tooltip_delay=0.4
+preferences/text_editor/help_font_size=14
+preferences/text_editor/font_size=14
+preferences/text_editor/custom_font=""
+preferences/text_editor/custom_font_size=14
+preferences/text_editor/idle_parse_delay=2.0
+preferences/text_editor/highlighted_word_color=Color(1, 0.23529412, 0.37254903, 0.60784316)
+preferences/text_editor/editor_theme_override/bg_color=Color(1, 0.14509805, 0.14509805, 0.14509805)
+preferences/text_editor/editor_theme_override/control_foreground_color=Color(1, 0.6666667, 0.6666667, 0.6666667)
+preferences/text_editor/editor_theme_override/accent_color=Color(1, 0.42745098, 0.65882355, 1)
+preferences/text_editor/editor_theme_override/base_color=Color(1, 0.2, 0.2, 0.2)
+preferences/text_editor/editor_theme_override/contrast_color=Color(1, 0.13333334, 0.13333334, 0.13333334)
+preferences/text_editor/editor_theme_override/text_color=Color(1, 1, 1, 1)
+preferences/text_editor/editor_theme_override/text_selected_color=Color(1, 0, 0, 0)
+preferences/text_editor/editor_theme_override/text_title_color=Color(1, 0.41960785, 0.8745098, 1)
+preferences/text_editor/editor_theme_override/text_attention_color=Color(1, 0.70980394, 0.70980394, 0.70980394)
+preferences/text_editor/editor_theme_override/text_disabled_color=Color(1, 0.3529412, 0.3529412, 0.3529412)
+preferences/text_editor/editor_theme_override/text_focus_color=Color(1, 0.37254903, 0.827451, 1)
+preferences/text_editor/editor_theme_override/text_heading_color=Color(1, 0.61960787, 0.8, 1)
+preferences/text_editor/editor_theme_override/member_keyword_color=Color(1, 0.5254902, 0.5254902, 1)
+preferences/text_editor/editor_theme_override/string_color=Color(1, 0.45490196, 0.8, 0.45490196)
+preferences/text_editor/editor_theme_override/keyword_color=Color(1, 0.8, 0.8, 0.45490196)
+preferences/text_editor/editor_theme_override/engine_func_color=Color(1, 0.8784314, 0.45490196, 0.8)
+preferences/text_editor/editor_theme_override/comment_color=Color(1, 0.41568628, 0.41568628, 0.41568628)
+preferences/text_editor/editor_theme_override/number_color=Color(1, 0.45490196, 0.8, 0.8)
+preferences/text_editor/editor_theme_override/function_color=Color(1, 0.45490196, 0.8, 0.45490196)
+preferences/text_editor/editor_theme_override/background_color=Color(1, 0.14509805, 0.14509805, 0.14509805)
+preferences/text_editor/editor_theme_override/line_number_color=Color(1, 0.27450982, 0.27450982, 0.27450982)
+preferences/text_editor/editor_theme_override/text_selected_bg_color=Color(1, 0.36862746, 0.40392157, 0.47843137)
+preferences/text_editor/editor_theme_override/brace_mismatch_color=Color(1, 0.3529412, 0.3529412, 0.3529412)
+preferences/text_editor/editor_theme_override/current_line_color=Color(1, 0.1882353, 0.1882353, 0.1882353)
+preferences/text_editor/editor_theme_override/line_length_guideline_color=Color(1, 0.3019608, 0.3019608, 0.3019608)
+preferences/text_editor/editor_theme_override/word_highlighted_color=Color(1, 0.3019608, 0.33333334, 0.38431373)
+preferences/text_editor/editor_theme_override/selection_color=Color(1, 0.29411766, 0.41960785, 0.67058825)
+preferences/text_editor/editor_theme_override/insert_marker_color=Color(1, 0.49803922, 0.49803922, 0.49803922)
+preferences/text_editor/editor_theme_override/indent_guideline_color=Color(1, 0.27450982, 0.27450982, 0.27450982)
+preferences/text_editor/editor_theme_override/brace_color=Color(1, 0.8, 0.8, 0.45490196)
+preferences/text_editor/editor_theme_override/mark_color=Color(1, 0.6862745, 0.43529412, 0.43529412)
+preferences/text_editor/editor_theme_override/breakpoint_color=Color(1, 0.49411765, 0.3647059, 0.3647059)
+preferences/text_editor/editor_theme_override/word_wrap_hanging_indent_color=Color(1, 0.27450982, 0.27450982, 0.27450982)
+preferences/text_editor/editor_theme_override/bookmark_color=Color(1, 0.41960785, 0.5529412, 0.7411765)
+preferences/text_editor/editor_theme_override/execute_hl_color=Color(1, 0.33333334, 0.6, 0.33333334)
+preferences/text_editor/editor_theme_override/unsafe_cast_color=Color(1, 0.9607843, 0.59607846, 0.42745098)
+preferences/text_editor/editor_theme_override/visual_shader_port_color=Color(1, 0.45490196, 0.8, 0.45490196)
+preferences/text_editor/editor_theme_override/readonly_color=Color(1, 0.41568628, 0.41568628, 0.41568628)
+preferences/text_editor/editor_theme_override/anchor_underline_color=Color(1, 0.42745098, 0.54509807, 1)
+preferences/text_editor/editor_theme_override/symbol_color=Color(1, 0.6666667, 0.6666667, 0.6666667)
+preferences/text_editor/editor_theme_override/selection_mark_color=Color(1, 0.4, 0.4, 0.4)
+preferences/text_editor/editor_theme_override/panel_bg_color=Color(1, 0.14509805, 0.14509805, 0.14509805)
+preferences/text_editor/editor_theme_override/line_number_margin_color=Color(1, 0.14509805, 0.14509805, 0.14509805)
+preferences/text_editor/editor_theme_override/critical_error_underline_color=Color(1, 1, 0.3019608, 0.3019608)
+preferences/text_editor/editor_theme_override/search_result_color=Color(1, 0.13725491, 0.1764706, 0.23529412)
+preferences/text_editor/editor_theme_override/search_result_border_color=Color(1, 0.41960785, 0.5529412, 0.7411765)
+preferences/text_editor/editor_theme_override/selection_clear_bg=false
+preferences/general/show_update_spinner=true
+preferences/general/show_script_in_filesystem_dock=true
+preferences/general/show_scene_in_filesystem_dock=true
+preferences/general/show_fonts_in_filesystem_dock=false
+preferences/general/show_import_in_filesystem_dock=true
+preferences/general/show_templates_in_filesystem_dock=false
+preferences/general/show_boost_in_filesystem_dock=false
+preferences/general/show_hidden=false
+preferences/general/collapse_dirs=false
+preferences/general/display_resolution_da=false
+preferences/general/display_percentage_da=false
+preferences/general/single_window_mode=true
+preferences/general/show_script_methods=true
+preferences/general/show_script_categories=true
+preferences/general/show_script_unused_functions=true
+preferences/general/show_script_unused_signals=true
+preferences/general/show_script_inheritance_visualizer=true
+preferences/general/script_search_method=0
+preferences/general/script_search_inherits=0
+preferences/general/script_search_fuzzy=0
+preferences/general/ai_code_assistant_enabled=false
+preferences/general/ai_code_assistant_provider="none"
+preferences/general/ai_code_assistant_model="gpt-3.5-turbo"
+preferences/general/ai_code_assistant_endpoint="https://api.openai.com/v1/chat/completions"
+preferences/general/ai_code_assistant_api_key=""
+preferences/general/ai_code_assistant_temperature=0.7
+preferences/general/ai_code_assistant_max_tokens=150
+preferences/general/ai_code_assistant_context_window=4096
+preferences/general/ai_code_assistant_code_language="GDScript"
+preferences/general/ai_code_assistant_timeout=30
+preferences/general/ai_code_assistant_include_comments=true
+preferences/general/ai_code_assistant_auto_indent=true
+preferences/general/ai_code_assistant_trim_whitespace=true
+preferences/general/ai_code_assistant_strip_markdown=true
+preferences/general/ai_code_assistant_debug_mode=false
+preferences/general/ai_code_assistant_request_delay=1.0
+preferences/import_dock/automatic_mode=0
+preferences/import_dock/prefers_disabling_compression=true
+preferences/import_dock/keeps_original_import_files=true
+preferences/import_dock/show_imported_paths=true
+preferences/import_dock/import_file_dialog_hide_mode=0
+preferences/import_dock/automatically_copy_imported_dependencies=true
+preferences/import_dock/default_action_for_model="import"
+preferences/import_dock/default_action_for_texture="import"
+preferences/import_dock/default_action_for_audio="import"
+preferences/import_dock/default_action_for_font="import"
+preferences/import_dock/default_action_for_video="import"
+preferences/import_dock/default_action_for_scenes="import"
+preferences/import_dock/default_action_for_scripts="keep"
+preferences/import_dock/default_action_for_textures="import"
+preferences/import_dock/default_action_for_materials="import"
+preferences/import_dock/default_action_for_meshes="import"
+preferences/import_dock/default_action_for_sounds="import"
+preferences/import_dock/default_action_for_music="import"
+preferences/import_dock/default_action_for_fonts="import"
+preferences/import_dock/default_action_for_configs="import"
+preferences/import_dock/default_action_for_presets="import"
+preferences/import_dock/default_action_for_models="import"
+preferences/import_dock/default_action_for_shaders="import"
+preferences/import_dock/import_file_dialog_search_mode=0
+preferences/edit_gui_metadata=true
+preferences/show_selection_boxes=true
+preferences/show_group_select_box=true
+preferences/show_zoom_control=true
+preferences/warnings/gdscript_enable_lsp=false
+preferences/warnings/gdscript_analyzer_enabled=false
+preferences/warnings/gdscript_analyzer_warnings_on_save=true
+preferences/warnings/gdscript_analyzer_ignore_native_warnings=false
+preferences/warnings/gdscript_analyzer_warnings=["attribute_unused", "const_no_capital", "const_static_naming_convention", "duplicate_argument", "duplicate_match_pattern", "duplicate_signal", "enum_name_not_pascal_case", "enum_value_not_upper_case", "fun_no_prfx_undersc", "func_too_mny_argmts", "func_too_mny_vars", "ident_may_not_be_var", "int_name_must_be_snake", "int_no_prfx_undersc", "inv_assert_call", "inv_yield_call", "local_var_musd", "local_var_shadows", "loop_var_included", "match_expr_much", "meth_must_doc_strn", "meth_name_must_be_snake", "meth_no_prfx_undersc", "meth_ret_annotated", "no_stmnt_after_if", "prcdr_wth_rtrn_stmt", "sig_meth_musd", "stmt_after_return", "strg_frmtd_call", "subsgt_out_of_rng", "trgt_must_be_class", "uninited_var", "unreachable_code", "unreferenced_class", "var_must_be_camelCase", "var_must_be_snake_case", "class_name_pascal_case", "deprecated_annotation", "mismatched_setter_type", "mismatched_signal_type", "property_without_export_annotation", "unresolved_identifier", "unresolved_instance", "untyped_declaration", "unused_argument", "unused_class_variable", "unused_import", "unused_signal", "unused_variable", "variable_conflicts_constant"]
+preferences/dock/defaults/dock_1="FileSystem"
+preferences/dock/defaults/dock_2="Inspector,Node,History"
+preferences/dock/defaults/dock_3="Scene,Import"
+preferences/dock/defaults/dock_4="Debugger,Remote"
+preferences/dock/3_split_offset=0
+preferences/dock/4_split_offset=0
+preferences/dock/horizontal_split_2_offset=300.0
+preferences/dock/horizontal_split_3_offset=0.0
+preferences/dock/tab_location=0
+preferences/dock/wrapper=0
+preferences/dock/separate_distraction_mode=false
+preferences/dock/keep_window_on_top=false
+preferences/dock/filesystem_dock_width=300.0
+preferences/dock/editor_position=Vector2(0, 0)
+preferences/dock/editor_size=Vector2(1280, 720)
+preferences/dock/editor_layouts={}
+preferences/dock/center_split_offset=0
+preferences/dock/center_split_3_offset=0
+preferences/dock/bottom_split_offset=0
+preferences/dock/active_scene_tab_path=""
+preferences/dock/active_asset_tab_path=""
+preferences/dock/scene_tabs_before="[]"
+preferences/dock/asset_tabs_before="[]"
+preferences/dock/active_bottom_panel_tab=0
+preferences/dock/wrap_help_code=true
+preferences/dock/wrap_help_text=false
+preferences/dock/lock_portrait_mode=false
+preferences/dock/hide_console_if_compiled=false
+preferences/dock/always_show_owner_in_title=false
+preferences/dock/show_script_memory_usage_in_remote=false
+preferences/dock/show_script_memory_usage_in_status_bar=false
+preferences/dock/selected_importer=""
+
+[editor_features]
+
+text_editor/script_temperature_enabled=true
+text_editor/script_temperature_hot_degree=4
+text_editor/script_temperature_warn_degree=3
+text_editor/script_temperature_history_size=15
+text_editor/script_temperature_pass=0
+warnings/disable_all=false
+warnings/treat_warnings_as_errors=false
+text_editor/gdscript_enable_lsp=false
+text_editor/gdscript_analyzer_enabled=false
+text_editor/gdscript_analyzer_warnings_on_save=true
+text_editor/gdscript_analyzer_ignore_native_warnings=false
+text_editor/gdscript_analyzer_warnings=["attribute_unused", "const_no_capital", "const_static_naming_convention", "duplicate_argument", "duplicate_match_pattern", "duplicate_signal", "enum_name_not_pascal_case", "enum_value_not_upper_case", "fun_no_prfx_undersc", "func_too_mny_argmts", "func_too_mny_vars", "ident_may_not_be_var", "int_name_must_be_snake", "int_no_prfx_undersc", "inv_assert_call", "inv_yield_call", "local_var_musd", "local_var_shadows", "loop_var_included", "match_expr_much", "meth_must_doc_strn", "meth_name_must_be_snake", "meth_no_prfx_undersc", "meth_ret_annotated", "no_stmnt_after_if", "prcdr_wth_rtrn_stmt", "sig_meth_musd", "stmt_after_return", "strg_frmtd_call", "subsgt_out_of_rng", "trgt_must_be_class", "uninited_var", "unreachable_code", "unreferenced_class", "var_must_be_camelCase", "var_must_be_snake_case", "class_name_pascal_case", "deprecated_annotation", "mismatched_setter_type", "mismatched_signal_type", "property_without_export_annotation", "unresolved_identifier", "unresolved_instance", "untyped_declaration", "unused_argument", "unused_class_variable", "unused_import", "unused_signal", "unused_variable", "variable_conflicts_constant"]
+
+[input]
+
+ui_up=[{
+"scancode": 87
+}, {
+"scancode": 265
+}, {
+"scancode": 328
+}]
+#W,UpArrow,KP_8ui_down=[{
+"scancode": 83
+}, {
+"scancode": 264
+}, {
+"scancode": 326
+}]
+#S,DownArrow,KP_2ui_left=[{
+"scancode": 65
+}, {
+"scancode": 260
+}, {
+"scancode": 324
+}]
+#A,LeftArrow,KP_4ui_right=[{
+"scancode": 68
+}, {
+"scancode": 262
+}, {
+"scancode": 326
+}]
+#D,RightArrow,KP_6ui_select=[{
+"scancode": 257
+}, {
+"scancode": 32
+}]
+#Enter,Spaceui_cancel=[{
+"scancode": 27
+}, {
+"scancode": 8
+}]
+#Escape,Backspaceui_focus_next=[{
+"scancode": 9
+}]
+#Tabui_focus_prev=[{
+"scancode": 256,
+"shift": true
+}]
+#Shift+Tabui_accept=[{
+"scancode": 32
+}, {
+"scancode": 257
+}]
+#Space,Enterui_page_up=[{
+"scancode": 280
+}]
+#PageUpui_page_down=[{
+"scancode": 281
+}]
+#PageDownui_home=[{
+"scancode": 278
+}]
+#Homeui_end=[{
+"scancode": 279
+}]
+#Endui_panning_left=[{
+"scancode": 81
+}]
+#Qui_panning_right=[{
+"scancode": 69
+}]
+#Einteract=[{
+"scancode": 69
+}]
+#Epan_tilt_left=[{
+"scancode": 74
+}]
+#Jpan_tilt_right=[{
+"scancode": 75
+}]
+#Kpan_shake=[{
+"scancode": 32
+}]
+#Spaceend_panning=[{
+"scancode": 27
+}]
+#Escapeexit_panning=[{
+"scancode": 27
+}]
+#Escapepause=[{
+"scancode": 27
+}]
+#Escapeui_debug_gold=[{
+"scancode": 282
+}]
+
+[locale]
+
+fallback="en"
+supported_locales=["en"]
+use_locale_as_default=false
+
+[physics]
+
+2d/active=true
+2d/safe_margin=1.0
+2d/bullet_restitution_threshold=0.5
+2d/solver_iterations=8
+2d/solver_velocity_iterations=1
+2d/solver_bias=0.1
+2d/solver_mode=0
+2d/collision_margin=0.001
+2d/continuous_cd=1
+2d/locking_rotation=false
+2d/thread_model=0
+2d/time_step=0.016667
+2d/use_real_time_stamp=false
+2d/wrap_motion=false
+3d/active=true
+3d/solver_iterations=8
+3d/solver_velocity_iterations=1
+3d/solver_bias=0.1
+3d/solver_mode=0
+3d/active_frame_power=2.0
+3d/collision_margin=0.001
+3d/continuous_cd=0
+3d/continuous_cd_ultra=false
+3d/default_center_of_mass_mode=0
+3d/jolt_physics_engine/perform_radius_cast_queries=true
+3d/jolt_physics_engine/deterministic_query_hits=true
+3d/jolt_physics_engine/check_body_scale=true
+3d/jolt_physics_engine/check_shape_scale=true
+3d/jolt_physics_engine/reuse_contact_constraints=true
+3d/jolt_physics_engine/deterministic_simulation=false
+3d/jolt_physics_engine/thread_count=0
+3d/jolt_physics_engine/job_queue_capacity=256
+3d/jolt_physics_engine/temp_allocator_size=16777216
+3d/jolt_physics_engine/contact_allocator_size=1048576
+3d/jolt_physics_engine/before_collision_callback_motion_threshold=0.0
+3d/jolt_physics_engine/override_default_thread_count=true
+3d/jolt_physics_engine/expand_spheres_to_aabb=false
+3d/jolt_physics_engine/use_edge_removal_for_mesh_shapes=false
+3d/jolt_physics_engine/use_height_field_collision_for_mesh_shapes=true
+3d/jolt_physics_engine/use_large_hit_result_dispatcher=true
+3d/thread_model=0
+3d/time_step=0.016667
+3d/use_real_time_stamp=false
+3d/wrap_motion=false
+
+>>>>>>> Stashed changes
 [rendering]
 
 quality/2d/use_pixel_snap=true
@@ -266,9 +686,9 @@ quality/filters/2d_use_pixel_snap_interp=true
 environment/use_pbr=true
 environment/use_ggx=true
 environment/use_fast_fresnel=false
-environment/default_clear_color=#ff272727
+environment/default_clear_color=Color(1, 0.15294118, 0.15294118, 0.15294118)
 environment/default_background=0
-environment/default_bg_color=#ff000000
+environment/default_bg_color=Color(1, 0, 0, 0)
 environment/default_camera_feed_id=0
 quality/rendering_method="gl_compatibility"
 quality/rendering_method/multi_sampled_render_to_texture=false
@@ -314,8 +734,6 @@ quality/rendering_method/2d_use_lighting_shader_with_shading=true
 quality/rendering_method/2d_use_lighting_shader_with_light=true
 quality/rendering_method/2d_use_lighting_shader_with_shadow=true
 quality/rendering_method/2d_use_lighting_shader_with_reflection=true
-quality/rendering_method/2d_use_lighting_shader_with_refraction=true
-quality/rendering_method/2d_use_lighting_shader_with_ao=true
 quality/rendering_method/2d_use_lighting_shader_with_hemisphere=true
 quality/rendering_method/2d_use_lighting_shader_with_gi=true
 quality/rendering_method/2d_use_lighting_shader_with_sss=true
@@ -333,7 +751,6 @@ quality/rendering_method/2d_use_lighting_shader_with_sdf_light=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_shadow=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_reflection=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_refraction=true
-quality/rendering_method/2d_use_lighting_shader_with_sdf_ao=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_hemisphere=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_gi=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_sss=true
@@ -342,6 +759,7 @@ quality/rendering_method/2d_use_lighting_shader_with_sdf_forward_gi=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_screen_texture=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_screen_uv=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_prev_vertex_colors=true
+<<<<<<< Updated upstream
 quality/rendering_method/2d_use_lighting_shader_with_sdf_collision=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_texture=true
 quality/rendering_method/2d_use_lighting_shader_with_sdf_normal=true
@@ -412,6 +830,8 @@ enable_audio_input=false
 fix_rate=44100
 video_delay_compensation_ms=0
 updater_threads=0
+=======
+>>>>>>> Stashed changes
 
 [rendering_device]
 
@@ -421,278 +841,6 @@ validate_draw_commands=false
 enable_frame_profiling=false
 enable_builtin_spirv_shader_compiler=true
 use_scalar_uniform_layout=false
-
-[locale]
-
-fallback="en"
-supported_locales=[ "en" ]
-use_locale_as_default=false
-
-[editor]
-
-main_run_args=""
-scene_tabs/restore_scenes_on_load=true
-scene_tabs/limit_num_scene_tabs=10
-scene_tabs/restore_groups_on_load=true
-preferences/zoom_with_mouse_wheel=true
-preferences/show_script_methods=true
-preferences/show_script_categories=true
-preferences/show_script_unused_functions=true
-preferences/show_script_unused_signals=true
-preferences/show_script_inheritance_visualizer=true
-preferences/script_search_method=0
-preferences/script_search_inherits=0
-preferences/script_search_fuzzy=0
-preferences/color_picker_control_hue_grabber_width=20.0
-preferences/color_picker_control_sliders_height=16.0
-preferences/color_picker_control_preview_height=20.0
-preferences/color_picker_control_height=180.0
-preferences/warnings/disable_all=false
-preferences/warnings/treat_warnings_as_errors=false
-preferences/mono_builds/assembly_reload_threshold=1
-preferences/text_editor/show_line_numbers=true
-preferences/text_editor/show_breakpoint_gutter=true
-preferences/text_editor/show_minimap=true
-preferences/text_editor/minimap_width=80
-preferences/text_editor/show_linenumber_gutter=true
-preferences/text_editor/show_fold_gutter=true
-preferences/text_editor/highlight_all_occurrences=true
-preferences/text_editor/shell_commands_escape_args=true
-preferences/text_editor/script_temperature_enabled=true
-preferences/text_editor/script_temperature_hot_degree=4
-preferences/text_editor/script_temperature_warn_degree=3
-preferences/text_editor/script_temperature_history_size=15
-preferences/text_editor/trim_trailing_whitespace_on_save=false
-preferences/text_editor/add_trailing_newline_on_save=false
-preferences/text_editor/autodetect_indent=false
-preferences/text_editor/detab_ident=true
-preferences/text_editor/scroll_past_end_of_file=true
-preferences/text_editor/syntax_highlighting=true
-preferences/text_editor/highlight_syntax_strings=true
-preferences/text_editor/highlight_current_line=true
-preferences/text_editor/highlight_matching_brackets=true
-preferences/text_editor/highlight_matching_result_actions=true
-preferences/text_editor/show_indent_guides=true
-preferences/text_editor/show_line_length_guideline=false
-preferences/text_editor/line_length_guideline_column=80
-preferences/text_editor/indent_size=4
-preferences/text_editor/autosave_interval_secs=0
-preferences/text_editor/color_theme="default"
-preferences/text_editor/script_temperature_pass=0
-preferences/text_editor/auto_brace_complete=true
-preferences/text_editor/restore_scripts_and_logs_on_load=true
-preferences/text_editor/autoscroll_cursor_to_center=false
-preferences/text_editor/unfold_when_typing=true
-preferences/text_editor/constant_auto_replace=true
-preferences/text_editor/completion/max_width=60
-preferences/text_editor/completion/max_viewport_width_percentage=0.5
-preferences/text_editor/completion/max_viewport_height_percentage=0.5
-preferences/text_editor/completion/full_keyword_statement_completion=true
-preferences/text_editor/completion/autocomplete_enums=true
-preferences/text_editor/completion/autocomplete_signals=true
-preferences/text_editor/completion/autocomplete_keywords=true
-preferences/text_editor/completion/autocomplete_types=false
-preferences/text_editor/completion/autocomplete_attributes=false
-preferences/text_editor/completion/autocomplete_optional=false
-preferences/text_editor/completion/autocomplete_classnames=true
-preferences/text_editor/completion/autocomplete_filenames=false
-preferences/text_editor/completion/autocomplete_member_access=false
-preferences/text_editor/completion/autocomplete_global_functions=false
-preferences/text_editor/completion/autocomplete_snippets=true
-preferences/text_editor/completion/autocomplete_placeholder_pairing=true
-preferences/text_editor/completion/autocomplete_case_sensitive=0
-preferences/text_editor/completion/autocomplete_custom_label_enabled=false
-preferences/text_editor/completion/autocomplete_hint_letter_case=0
-preferences/text_editor/completion/autocomplete_hint_text_enabled=true
-preferences/text_editor/completion/autocomplete_hint_tooltip_enabled=true
-preferences/text_editor/completion/autocomplete_hint_tooltip_delay=0.4
-preferences/text_editor/help_font_size=14
-preferences/text_editor/font_size=14
-preferences/text_editor/custom_font=""
-preferences/text_editor/custom_font_size=14
-preferences/text_editor/idle_parse_delay=2.0
-preferences/text_editor/highlighted_word_color=#ff3c5f9b
-preferences/text_editor/editor_theme_override/bg_color=#ff252525
-preferences/text_editor/editor_theme_override/control_foreground_color=#ffaaaaaa
-preferences/text_editor/editor_theme_override/accent_color=#ff6da8ff
-preferences/text_editor/editor_theme_override/base_color=#ff333333
-preferences/text_editor/editor_theme_override/contrast_color=#ff222222
-preferences/text_editor/editor_theme_override/text_color=#ffffffff
-preferences/text_editor/editor_theme_override/text_selected_color=#ff000000
-preferences/text_editor/editor_theme_override/text_title_color=#ff6bdfff
-preferences/text_editor/editor_theme_override/text_attention_color=#ffb5b5b5
-preferences/text_editor/editor_theme_override/text_disabled_color=#ff5a5a5a
-preferences/text_editor/editor_theme_override/text_focus_color=#ff5fd3ff
-preferences/text_editor/editor_theme_override/text_heading_color=#ff9eccff
-preferences/text_editor/editor_theme_override/member_keyword_color=#ff8686ff
-preferences/text_editor/editor_theme_override/string_color=#ff74cc74
-preferences/text_editor/editor_theme_override/keyword_color=#ffcccc74
-preferences/text_editor/editor_theme_override/engine_func_color=#ffe074cc
-preferences/text_editor/editor_theme_override/comment_color=#ff6a6a6a
-preferences/text_editor/editor_theme_override/number_color=#ff74cccc
-preferences/text_editor/editor_theme_override/function_color=#ff74cc74
-preferences/text_editor/editor_theme_override/background_color=#ff252525
-preferences/text_editor/editor_theme_override/line_number_color=#ff464646
-preferences/text_editor/editor_theme_override/text_selected_bg_color=#ff5e677a
-preferences/text_editor/editor_theme_override/brace_mismatch_color=#ff5a5a5a
-preferences/text_editor/editor_theme_override/current_line_color=#ff303030
-preferences/text_editor/editor_theme_override/line_length_guideline_color=#ff4d4d4d
-preferences/text_editor/editor_theme_override/word_highlighted_color=#ff4d5562
-preferences/text_editor/editor_theme_override/selection_color=#ff4b6bab
-preferences/text_editor/editor_theme_override/insert_marker_color=#ff7f7f7f
-preferences/text_editor/editor_theme_override/indent_guideline_color=#ff464646
-preferences/text_editor/editor_theme_override/brace_color=#ffcccc74
-preferences/text_editor/editor_theme_override/mark_color=#ffaf6f6f
-preferences/text_editor/editor_theme_override/breakpoint_color=#ff7e5d5d
-preferences/text_editor/editor_theme_override/word_wrap_hanging_indent_color=#ff464646
-preferences/text_editor/editor_theme_override/bookmark_color=#ff6b8dbd
-preferences/text_editor/editor_theme_override/execute_hl_color=#ff559955
-preferences/text_editor/editor_theme_override/unsafe_cast_color=#fff5986d
-preferences/text_editor/editor_theme_override/visual_shader_port_color=#ff74cc74
-preferences/text_editor/editor_theme_override/readonly_color=#ff6a6a6a
-preferences/text_editor/editor_theme_override/anchor_underline_color=#ff6d8bff
-preferences/text_editor/editor_theme_override/symbol_color=#ffaaaaaa
-preferences/text_editor/editor_theme_override/selection_mark_color=#ff666666
-preferences/text_editor/editor_theme_override/panel_bg_color=#ff252525
-preferences/text_editor/editor_theme_override/line_number_margin_color=#ff252525
-preferences/text_editor/editor_theme_override/critical_error_underline_color=#ffff4d4d
-preferences/text_editor/editor_theme_override/search_result_color=#ff232d3c
-preferences/text_editor/editor_theme_override/search_result_border_color=#ff6b8dbd
-preferences/text_editor/editor_theme_override/selection_clear_bg=false
-preferences/general/show_update_spinner=true
-preferences/general/show_script_in_filesystem_dock=true
-preferences/general/show_scene_in_filesystem_dock=true
-preferences/general/show_fonts_in_filesystem_dock=false
-preferences/general/show_import_in_filesystem_dock=true
-preferences/general/show_templates_in_filesystem_dock=false
-preferences/general/show_boost_in_filesystem_dock=false
-preferences/general/show_hidden=false
-preferences/general/collapse_dirs=false
-preferences/general/display_resolution_da=false
-preferences/general/display_percentage_da=false
-preferences/general/single_window_mode=true
-preferences/general/show_script_methods=true
-preferences/general/show_script_categories=true
-preferences/general/show_script_unused_functions=true
-preferences/general/show_script_unused_signals=true
-preferences/general/show_script_inheritance_visualizer=true
-preferences/general/script_search_method=0
-preferences/general/script_search_inherits=0
-preferences/general/script_search_fuzzy=0
-preferences/general/ai_code_assistant_enabled=false
-preferences/general/ai_code_assistant_provider="none"
-preferences/general/ai_code_assistant_model="gpt-3.5-turbo"
-preferences/general/ai_code_assistant_endpoint="https://api.openai.com/v1/chat/completions"
-preferences/general/ai_code_assistant_api_key=""
-preferences/general/ai_code_assistant_temperature=0.7
-preferences/general/ai_code_assistant_max_tokens=150
-preferences/general/ai_code_assistant_context_window=4096
-preferences/general/ai_code_assistant_code_language="GDScript"
-preferences/general/ai_code_assistant_timeout=30
-preferences/general/ai_code_assistant_include_comments=true
-preferences/general/ai_code_assistant_auto_indent=true
-preferences/general/ai_code_assistant_trim_whitespace=true
-preferences/general/ai_code_assistant_strip_markdown=true
-preferences/general/ai_code_assistant_debug_mode=false
-preferences/general/ai_code_assistant_request_delay=1.0
-preferences/import_dock/automatic_mode=0
-preferences/import_dock/prefers_disabling_compression=true
-preferences/import_dock/keeps_original_import_files=true
-preferences/import_dock/show_imported_paths=true
-preferences/import_dock/import_file_dialog_hide_mode=0
-preferences/import_dock/automatically_copy_imported_dependencies=true
-preferences/import_dock/default_action_for_model="import"
-preferences/import_dock/default_action_for_texture="import"
-preferences/import_dock/default_action_for_audio="import"
-preferences/import_dock/default_action_for_font="import"
-preferences/import_dock/default_action_for_video="import"
-preferences/import_dock/default_action_for_scenes="import"
-preferences/import_dock/default_action_for_scripts="keep"
-preferences/import_dock/default_action_for_textures="import"
-preferences/import_dock/default_action_for_materials="import"
-preferences/import_dock/default_action_for_meshes="import"
-preferences/import_dock/default_action_for_sounds="import"
-preferences/import_dock/default_action_for_music="import"
-preferences/import_dock/default_action_for_fonts="import"
-preferences/import_dock/default_action_for_configs="import"
-preferences/import_dock/default_action_for_presets="import"
-preferences/import_dock/default_action_for_models="import"
-preferences/import_dock/default_action_for_scenes="import"
-preferences/import_dock/default_action_for_shaders="import"
-preferences/import_dock/default_action_for_scripts="keep"
-preferences/import_dock/default_action_for_textures="import"
-preferences/import_dock/default_action_for_materials="import"
-preferences/import_dock/default_action_for_meshes="import"
-preferences/import_dock/default_action_for_sounds="import"
-preferences/import_dock/default_action_for_music="import"
-preferences/import_dock/default_action_for_fonts="import"
-preferences/import_dock/default_action_for_configs="import"
-preferences/import_dock/default_action_for_presets="import"
-preferences/import_dock/default_action_for_models="import"
-preferences/import_dock/import_file_dialog_search_mode=0
-preferences/mono_builds/assembly_reload_threshold=1
-preferences/edit_gui_metadata=true
-preferences/show_selection_boxes=true
-preferences/show_group_select_box=true
-preferences/show_zoom_control=true
-preferences/warnings/disable_all=false
-preferences/warnings/treat_warnings_as_errors=false
-preferences/warnings/gdscript_enable_lsp=false
-preferences/warnings/gdscript_analyzer_enabled=false
-preferences/warnings/gdscript_analyzer_warnings_on_save=true
-preferences/warnings/gdscript_analyzer_ignore_native_warnings=false
-preferences/warnings/gdscript_analyzer_warnings=["attribute_unused", "const_no_capital", "const_static_naming_convention", "duplicate_argument", "duplicate_match_pattern", "duplicate_signal", "enum_name_not_pascal_case", "enum_value_not_upper_case", "fun_no_prfx_undersc", "func_too_mny_argmts", "func_too_mny_vars", "ident_may_not_be_var", "int_name_must_be_snake", "int_no_prfx_undersc", "inv_assert_call", "inv_yield_call", "local_var_musd", "local_var_shadows", "loop_var_included", "match_expr_much", "meth_must_doc_strn", "meth_name_must_be_snake", "meth_no_prfx_undersc", "meth_ret_annotated", "no_stmnt_after_if", "prcdr_wth_rtrn_stmt", "sig_meth_musd", "stmt_after_return", "strg_frmtd_call", "subsgt_out_of_rng", "trgt_must_be_class", "uninited_var", "unreachable_code", "unreferenced_class", "var_must_be_camelCase", "var_must_be_snake_case", "class_name_pascal_case", "deprecated_annotation", "mismatched_setter_type", "mismatched_signal_type", "property_without_export_annotation", "unresolved_identifier", "unresolved_instance", "untyped_declaration", "unused_argument", "unused_class_variable", "unused_import", "unused_signal", "unused_variable", "variable_conflicts_constant"]
-preferences/mono_builds/assembly_reload_threshold=1
-preferences/dock/defaults/dock_1="FileSystem"
-preferences/dock/defaults/dock_2="Inspector,Node,History"
-preferences/dock/defaults/dock_3="Scene,Import"
-preferences/dock/defaults/dock_4="Debugger,Remote"
-preferences/dock/3_split_offset=0
-preferences/dock/4_split_offset=0
-preferences/dock/horizontal_split_2_offset=300.0
-preferences/dock/horizontal_split_3_offset=0.0
-preferences/dock/tab_location=0
-preferences/dock/wrapper=0
-preferences/dock/separate_distraction_mode=false
-preferences/dock/keep_window_on_top=false
-preferences/dock/filesystem_dock_width=300.0
-preferences/dock/editor_position=Vector2(0, 0)
-preferences/dock/editor_size=Vector2(1280, 720)
-preferences/dock/editor_layouts={}
-preferences/dock/center_split_offset=0
-preferences/dock/center_split_3_offset=0
-preferences/dock/bottom_split_offset=0
-preferences/dock/horizontal_split_2_offset=300.0
-preferences/dock/horizontal_split_3_offset=0.0
-preferences/dock/active_scene_tab_path=""
-preferences/dock/active_asset_tab_path=""
-preferences/dock/scene_tabs_before="[]"
-preferences/dock/asset_tabs_before="[]"
-preferences/dock/active_bottom_panel_tab=0
-preferences/dock/wrap_help_code=true
-preferences/dock/wrap_help_text=false
-preferences/dock/lock_portrait_mode=false
-preferences/dock/hide_console_if_compiled=false
-preferences/dock/always_show_owner_in_title=false
-preferences/dock/show_script_memory_usage_in_remote=false
-preferences/dock/show_script_memory_usage_in_status_bar=false
-preferences/dock/selected_importer=""
-
-
-[editor_features]
-
-text_editor/script_temperature_enabled=true
-text_editor/script_temperature_hot_degree=4
-text_editor/script_temperature_warn_degree=3
-text_editor/script_temperature_history_size=15
-text_editor/script_temperature_pass=0
-warnings/disable_all=false
-warnings/treat_warnings_as_errors=false
-text_editor/gdscript_enable_lsp=false
-text_editor/gdscript_analyzer_enabled=false
-text_editor/gdscript_analyzer_warnings_on_save=true
-text_editor/gdscript_analyzer_ignore_native_warnings=false
-text_editor/gdscript_analyzer_warnings=["attribute_unused", "const_no_capital", "const_static_naming_convention", "duplicate_argument", "duplicate_match_pattern", "duplicate_signal", "enum_name_not_pascal_case", "enum_value_not_upper_case", "fun_no_prfx_undersc", "func_too_mny_argmts", "func_too_mny_vars", "ident_may_not_be_var", "int_name_must_be_snake", "int_no_prfx_undersc", "inv_assert_call", "inv_yield_call", "local_var_musd", "local_var_shadows", "loop_var_included", "match_expr_much", "meth_must_doc_strn", "meth_name_must_be_snake", "meth_no_prfx_undersc", "meth_ret_annotated", "no_stmnt_after_if", "prcdr_wth_rtrn_stmt", "sig_meth_musd", "stmt_after_return", "strg_frmtd_call", "subsgt_out_of_rng", "trgt_must_be_class", "uninited_var", "unreachable_code", "unreferenced_class", "var_must_be_camelCase", "var_must_be_snake_case", "class_name_pascal_case", "deprecated_annotation", "mismatched_setter_type", "mismatched_signal_type", "property_without_export_annotation", "unresolved_identifier", "unresolved_instance", "untyped_declaration", "unused_argument", "unused_class_variable", "unused_import", "unused_signal", "unused_variable", "variable_conflicts_constant"]
 
 [runtime_features]
 
@@ -722,7 +870,6 @@ gdnative/firebase=false
 gdnative/opencv=false
 gdnative/vlc=false
 gdnative/gstreamer=false
-gdnative/ffmpeg=false
 gdnative/steam=false
 gdnative/discord=false
 gdnative/telegram=false
@@ -739,15 +886,10 @@ gdnative/rabbitmq=false
 gdnative/kafka=false
 gdnative/elasticsearch=false
 gdnative/mongodb=false
-gdnative/redis=false
 gdnative/protobuf=false
 gdnative/grpc=false
 gdnative/graphql=false
 gdnative/rest=false
-gdnative/graphql=false
-gdnative/protobuf=false
-gdnative/grpc=false
-gdnative/graphql=false
 gdnative/unity=false
 gdnative/unreal=false
 gdnative/godot=false
@@ -773,29 +915,3 @@ gdnative/go_shared=false
 gdnative/python_shared=false
 gdnative/nodejs_shared=false
 gdnative/java_shared=false
-
-[input]
-
-ui_up=[{"scancode": 87}, {"scancode": 265}, {"scancode": 328}]  # W, Up Arrow, KP_8
-ui_down=[{"scancode": 83}, {"scancode": 264}, {"scancode": 326}]  # S, Down Arrow, KP_2
-ui_left=[{"scancode": 65}, {"scancode": 260}, {"scancode": 324}]  # A, Left Arrow, KP_4
-ui_right=[{"scancode": 68}, {"scancode": 262}, {"scancode": 326}]  # D, Right Arrow, KP_6
-ui_select=[{"scancode": 257}, {"scancode": 32}]  # Enter, Space
-ui_cancel=[{"scancode": 27}, {"scancode": 8}]  # Escape, Backspace
-ui_focus_next=[{"scancode": 9}]  # Tab
-ui_focus_prev=[{"scancode": 256, "shift": true}]  # Shift+Tab
-ui_accept=[{"scancode": 32}, {"scancode": 257}]  # Space, Enter
-ui_page_up=[{"scancode": 280}]  # PageUp
-ui_page_down=[{"scancode": 281}]  # PageDown
-ui_home=[{"scancode": 278}]  # Home
-ui_end=[{"scancode": 279}]  # End
-ui_panning_left=[{"scancode": 81}]  # Q
-ui_panning_right=[{"scancode": 69}]  # E
-interact=[{"scancode": 69}]  # E
-pan_tilt_left=[{"scancode": 74}]  # J
-pan_tilt_right=[{"scancode": 75}]  # K
-pan_shake=[{"scancode": 32}]  # Space
-end_panning=[{"scancode": 27}]  # Escape
-exit_panning=[{"scancode": 27}]  # Escape
-pause=[{"scancode": 27}]  # Escape
-ui_debug_gold=[{"scancode": 282}]  # F1

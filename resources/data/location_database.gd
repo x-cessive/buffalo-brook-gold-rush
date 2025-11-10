@@ -26,7 +26,7 @@ class LocationData:
 		seasonal_modifiers = {}
 
 ## Predefined locations for the game
-const LOCATIONS = {
+var LOCATIONS = {
 	"brookside_camp": LocationData.new(
 		"Brookside Camp", 
 		LocationTables.LocationDifficulty.VERY_EASY,

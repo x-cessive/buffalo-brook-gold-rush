@@ -61,16 +61,16 @@ func _setup_signals():
 func _position_elements_offscreen():
 	## Position menu elements off-screen for initial animation
 	title_label.position.y = -100
-	$MenuPanel/StartButton.position.y = get_viewport_rect().size.y + 100
-	$MenuPanel/SettingsButton.position.y = get_viewport_rect().size.y + 150
-	$MenuPanel/QuitButton.position.y = get_viewport_rect().size.y + 200
+	$MenuPanel/StartButton.position.y = get_viewport().get_visible_rect().size.y + 100
+	$MenuPanel/SettingsButton.position.y = get_viewport().get_visible_rect().size.y + 150
+	$MenuPanel/QuitButton.position.y = get_viewport().get_visible_rect().size.y + 200
 
 func _animate_menu_in():
 	## Animate menu elements into view
 	var tween = create_tween()
 	
 	# Animate title
-	tween.tween_property(title_label, "position:y", get_viewport_rect().size.y * 0.2, 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(title_label, "position:y", get_viewport().get_visible_rect().size.y * 0.2, 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 	# Animate buttons with delays
 	tween.tween_property($MenuPanel/StartButton, "position:y", target_positions["start_button"].y, 0.6).set_delay(0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
@@ -85,9 +85,9 @@ func _animate_menu_out():
 	tween.tween_property(title_label, "position:y", -100, 0.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	
 	# Animate buttons
-	tween.tween_property($MenuPanel/StartButton, "position:y", get_viewport_rect().size.y + 100, 0.5).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($MenuPanel/SettingsButton, "position:y", get_viewport_rect().size.y + 150, 0.5).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($MenuPanel/QuitButton, "position:y", get_viewport_rect().size.y + 200, 0.5).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($MenuPanel/StartButton, "position:y", get_viewport().get_visible_rect().size.y + 100, 0.5).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($MenuPanel/SettingsButton, "position:y", get_viewport().get_visible_rect().size.y + 150, 0.5).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($MenuPanel/QuitButton, "position:y", get_viewport().get_visible_rect().size.y + 200, 0.5).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	
 	return tween
 
@@ -119,12 +119,12 @@ func _on_quit_pressed():
 func show_menu():
 	## Show the menu with animation
 	_position_elements_offscreen()
-	visibility = true
+	visible = true
 	_animate_menu_in()
 
 func hide_menu():
 	## Hide the menu
-	visibility = false
+	visible = false
 
 func _input(event: InputEvent):
 	## Handle input for the menu

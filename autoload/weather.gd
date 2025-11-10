@@ -12,8 +12,9 @@ func _ready():
 
 func _initialize_weather_system():
 	## Creates and initializes the weather system
-	weather_system = preload("res://scripts/environment/weather_system.gd").new()
-	if weather_system:
+	var WeatherSystemScript = load("res://scripts/environment/weather_system.gd")
+	if WeatherSystemScript:
+		weather_system = WeatherSystemScript.new()
 		add_child(weather_system)
 		print("Weather system loaded and initialized")
 	else:

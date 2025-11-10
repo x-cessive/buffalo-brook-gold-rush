@@ -34,7 +34,7 @@ signal settings_closed
 
 func _ready():
 	## Initialize the settings menu
-	visibility = false  # Start hidden
+	visible = false  # Start hidden
 	_setup_settings_controls()
 	_setup_buttons()
 	_setup_signals()
@@ -99,7 +99,7 @@ func _capture_original_settings():
 
 func show_settings_menu():
 	## Show the settings menu with animations
-	visibility = true
+	visible = true
 	
 	# Position elements off-screen initially
 	_position_elements_offscreen()
@@ -130,33 +130,33 @@ func hide_settings_menu():
 	
 	# Animate section headers and controls out
 	tween.tween_property($SettingsPanel/VolumeSection, "position:x", 
-		-get_viewport_rect().size.x - slide_offset, animation_duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		-get_viewport().get_visible_rect().size.x - slide_offset, animation_duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($SettingsPanel/MusicSection, "position:x", 
-		-get_viewport_rect().size.x - slide_offset, animation_duration).set_delay(0.05).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		-get_viewport().get_visible_rect().size.x - slide_offset, animation_duration).set_delay(0.05).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($SettingsPanel/ResolutionSection, "position:x", 
-		-get_viewport_rect().size.x - slide_offset, animation_duration).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		-get_viewport().get_visible_rect().size.x - slide_offset, animation_duration).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($SettingsPanel/FullscreenSection, "position:x", 
-		-get_viewport_rect().size.x - slide_offset, animation_duration).set_delay(0.15).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		-get_viewport().get_visible_rect().size.x - slide_offset, animation_duration).set_delay(0.15).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($SettingsPanel/VSyncSection, "position:x", 
-		-get_viewport_rect().size.x - slide_offset, animation_duration).set_delay(0.2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		-get_viewport().get_visible_rect().size.x - slide_offset, animation_duration).set_delay(0.2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($SettingsPanel/ControlButtons, "position:x", 
-		-get_viewport_rect().size.x - slide_offset, animation_duration).set_delay(0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		-get_viewport().get_visible_rect().size.x - slide_offset, animation_duration).set_delay(0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	
 	# Fade out panel after controls animate out
 	tween.tween_property(settings_panel, "modulate:a", 0.0, animation_duration).set_delay(0.3)
 	
 	# Actually hide after animation completes
 	await tween.finished
-	visibility = false
+	visible = false
 
 func _position_elements_offscreen():
 	## Position all elements off-screen for initial animation
-	$SettingsPanel/VolumeSection.position.x = -get_viewport_rect().size.x - slide_offset
-	$SettingsPanel/MusicSection.position.x = -get_viewport_rect().size.x - slide_offset
-	$SettingsPanel/ResolutionSection.position.x = -get_viewport_rect().size.x - slide_offset
-	$SettingsPanel/FullscreenSection.position.x = -get_viewport_rect().size.x - slide_offset
-	$SettingsPanel/VSyncSection.position.x = -get_viewport_rect().size.x - slide_offset
-	$SettingsPanel/ControlButtons.position.x = -get_viewport_rect().size.x - slide_offset
+	$SettingsPanel/VolumeSection.position.x = -get_viewport().get_visible_rect().size.x - slide_offset
+	$SettingsPanel/MusicSection.position.x = -get_viewport().get_visible_rect().size.x - slide_offset
+	$SettingsPanel/ResolutionSection.position.x = -get_viewport().get_visible_rect().size.x - slide_offset
+	$SettingsPanel/FullscreenSection.position.x = -get_viewport().get_visible_rect().size.x - slide_offset
+	$SettingsPanel/VSyncSection.position.x = -get_viewport().get_visible_rect().size.x - slide_offset
+	$SettingsPanel/ControlButtons.position.x = -get_viewport().get_visible_rect().size.x - slide_offset
 	settings_panel.modulate.a = 0.0
 
 func _on_setting_changed(_value = null):

@@ -2,7 +2,10 @@
 ## Manages the game time and signals time-based events
 
 extends Node
+<<<<<<< Updated upstream
 class_name TimeClock
+=======
+>>>>>>> Stashed changes
 
 # Time-related enums and constants
 enum TimeOfDay {
@@ -83,7 +86,7 @@ func _update_time(delta: float):
 
 	# Emit time change signal periodically (every 15 seconds in game time)
 	if int(current_second) % 15 == 0:
-		var old_time = str(old_hour) + ":" + str(old_minute).pad_zeros(2) if 'old_hour' in get_script().get_script_property_list() else get_formatted_time()
+		var old_time = get_formatted_time()  # Use current time as old time for this periodic update
 		emit_signal("time_changed", old_time, get_formatted_time())
 
 func _update_time_of_day():

@@ -8,7 +8,7 @@ signal day_advanced(new_day)
 signal prices_changed
 
 # Base prices for items (in gold)
-const BASE_PRICES = {
+var BASE_PRICES = {
 	"Gold Flake": 5,
 	"Gold Nugget": 20,
 	"Crystal": 15,

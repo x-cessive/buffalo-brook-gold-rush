@@ -38,9 +38,10 @@ func travel_to_location(destination: LocationDataScript.LocationID) -> bool:
 		return false
 	
 	# Check if player can afford travel (if there's a cost)
+	var inventory = null
 	if travel_cost > 0:
 		# Assuming we have access to inventory system
-		var inventory = _get_inventory_system()
+		inventory = _get_inventory_system()
 		if inventory and inventory.get_gold() < travel_cost:
 			print("Not enough gold to travel. Need: " + str(travel_cost) + ", Have: " + str(inventory.get_gold()))
 			return false

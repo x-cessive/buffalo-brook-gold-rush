@@ -46,15 +46,15 @@ func _setup_signals():
 
 func _position_buttons_offscreen():
 	## Position buttons off-screen for animation
-	$PausePanel/ResumeButton.position.x = get_viewport_rect().size.x + button_offset
-	$PausePanel/SettingsButton.position.x = get_viewport_rect().size.x + button_offset
-	$PausePanel/MainMenuButton.position.x = get_viewport_rect().size.x + button_offset
-	$PausePanel/QuitButton.position.x = get_viewport_rect().size.x + button_offset
+	$PausePanel/ResumeButton.position.x = get_viewport().get_visible_rect().size.x + button_offset
+	$PausePanel/SettingsButton.position.x = get_viewport().get_visible_rect().size.x + button_offset
+	$PausePanel/MainMenuButton.position.x = get_viewport().get_visible_rect().size.x + button_offset
+	$PausePanel/QuitButton.position.x = get_viewport().get_visible_rect().size.x + button_offset
 
 func show_pause_menu():
 	## Show the pause menu with animations
 	is_paused = true
-	visibility = true
+	visible = true
 	
 	# Fade in the panel
 	var tween = create_tween()
@@ -77,20 +77,20 @@ func hide_pause_menu():
 	
 	# Animate buttons out
 	tween.tween_property($PausePanel/ResumeButton, "position:x", 
-		get_viewport_rect().size.x + button_offset, 0.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		get_viewport().get_visible_rect().size.x + button_offset, 0.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($PausePanel/SettingsButton, "position:x", 
-		get_viewport_rect().size.x + button_offset, 0.4).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		get_viewport().get_visible_rect().size.x + button_offset, 0.4).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($PausePanel/MainMenuButton, "position:x", 
-		get_viewport_rect().size.x + button_offset, 0.4).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		get_viewport().get_visible_rect().size.x + button_offset, 0.4).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($PausePanel/QuitButton, "position:x", 
-		get_viewport_rect().size.x + button_offset, 0.4).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		get_viewport().get_visible_rect().size.x + button_offset, 0.4).set_delay(0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	
 	# Fade out the panel after buttons animate out
 	tween.tween_property(pause_panel, "modulate:a", 0.0, fade_duration).set_delay(0.3)
 	
 	# Actually hide after fade completes
 	await tween.finished
-	visibility = false
+	visible = false
 
 func toggle_pause_menu():
 	## Toggle the pause menu on/off

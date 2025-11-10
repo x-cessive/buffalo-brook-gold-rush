@@ -103,23 +103,27 @@ func set_tooltip_offset(offset: Vector2):
 	tooltip_offset = offset
 
 # Function to be called from other scripts to show tooltips
-static func show(text: String, position: Vector2):
+static func show_global(text: String, position: Vector2):
 	## Static function to show tooltip from anywhere in the game
-	if get_tree().root.has_node("TooltipManager"):
-		var tooltip_manager = get_tree().root.get_node("TooltipManager")
-		if tooltip_manager:
-			tooltip_manager.show_tooltip_at_position(text, position)
+	var tooltip_manager = _get_tooltip_manager_instance()
+	if tooltip_manager:
+		tooltip_manager.show_tooltip_at_position(text, position)
 
-static func show_for_control(text: String, control: Control):
+static func show_for_control_global(text: String, control: Control):
 	## Static function to show tooltip for a control
-	if get_tree().root.has_node("TooltipManager"):
-		var tooltip_manager = get_tree().root.get_node("TooltipManager")
-		if tooltip_manager:
-			tooltip_manager.show_tooltip_for_control(text, control)
+	var tooltip_manager = _get_tooltip_manager_instance()
+	if tooltip_manager:
+		tooltip_manager.show_tooltip_for_control(text, control)
 
-static func hide():
+static func hide_global():
 	## Static function to hide tooltip from anywhere in the game
-	if get_tree().root.has_node("TooltipManager"):
-		var tooltip_manager = get_tree().root.get_node("TooltipManager")
-		if tooltip_manager:
-			tooltip_manager.hide_tooltip()
+	var tooltip_manager = _get_tooltip_manager_instance()
+	if tooltip_manager:
+		tooltip_manager.hide_tooltip()
+
+static func _get_tooltip_manager_instance():
+	## Helper function to get the tooltip manager instance
+	if Engine.get_main_loop() and Engine.get_main_loop().root and Engine.get_main_loop().root.has_node("TooltipManager"):
+		return Engine.get_main_loop().root.get_node("TooltipManager")
+	else:
+		return null

@@ -12,7 +12,7 @@ extends Button
 @export var pulse_speed: float = 2.0  # How fast to pulse
 
 # Tooltip parameters
-@export var tooltip_text: String = ""
+@export var button_tooltip_text: String = ""
 @export var tooltip_delay: float = 0.5  # Time to show tooltip
 
 # Internal state
@@ -39,7 +39,7 @@ func _ready():
 	button_up.connect(_on_button_up)
 	
 	# Create tooltip if needed
-	if tooltip_text != "":
+	if button_tooltip_text != "":
 		_create_tooltip()
 
 func _process(delta: float):
@@ -93,7 +93,7 @@ func _on_button_up():
 func _create_tooltip():
 	## Creates and configures the tooltip label
 	tooltip_label = Label.new()
-	tooltip_label.text = tooltip_text
+	tooltip_label.text = button_tooltip_text
 	tooltip_label.size = Vector2(200, 50)
 	tooltip_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	tooltip_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -127,7 +127,7 @@ func hide_tooltip():
 
 func set_tooltip(new_tooltip: String):
 	## Updates the button's tooltip text
-	tooltip_text = new_tooltip
+	button_tooltip_text = new_tooltip
 	if tooltip_label:
 		tooltip_label.text = new_tooltip
 
