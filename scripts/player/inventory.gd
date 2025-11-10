@@ -578,8 +578,7 @@ func repair_all_tools() -> int:
 			tool.repair(repair_amount)
 			# In this implementation, we'll assume it costs 1 gold per durability point to repair
 			total_cost += repair_amount
-	end
-	
+
 	if total_cost > 0:
 		if gold >= total_cost:
 			remove_gold(total_cost)
@@ -605,8 +604,7 @@ func repair_tools_by_type(tool_type: ToolDataScript.ToolType) -> int:
 				tool.repair(repair_amount)
 				# Cost: 1 gold per durability point
 				total_cost += repair_amount
-	end
-	
+
 	if total_cost > 0:
 		if gold >= total_cost:
 			remove_gold(total_cost)

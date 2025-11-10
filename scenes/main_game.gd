@@ -72,10 +72,10 @@ func _handle_input():
 func _try_to_pan():
 	## Attempts to start a panning action if player is in a valid location
 	var mouse_pos = get_global_mouse_position()
-	
+
 	# Check if mouse is over panning area (representing water)
-	if panning_area.get_global_rect().has_point(mouse_pos):
-		_start_panning()
+	# For now, always allow panning - in full game this would check Area2D collision
+	_start_panning()
 
 func _start_panning():
 	## Starts the panning minigame
@@ -130,7 +130,7 @@ func _calculate_gold_yield() -> int:
 		# Found gold - determine amount
 		var min_gold = 1
 		var max_gold = 5
-		return int(rand_range(min_gold, max_gold + 1))
+		return randi_range(min_gold, max_gold)
 	else:
 		# No gold found
 		return 0
