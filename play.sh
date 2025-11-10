@@ -12,5 +12,5 @@ if ! command -v godot &> /dev/null; then
     exit 1
 fi
 
-# Launch the game
-godot --path "$SCRIPT_DIR" res://scenes/menu.tscn
+# Launch the game (uses main scene from project.godot)
+godot --path "$SCRIPT_DIR"

@@ -49,9 +49,3 @@ z_index = -1
 [node name="PanTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-
-[resource_type="ConvexPolygonShape2D" uid="uid://b9sz2hgs37qt5"]
-points = PoolVector2Array(-100, 100, 100, 100, 100, -100, -100, -100)
-
-[connections]
-connect("body_entered", "MainGame", "_on_panning_area_entered")
