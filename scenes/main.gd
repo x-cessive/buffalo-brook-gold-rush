@@ -68,5 +68,5 @@ func _on_resume_pressed():
 
 func _on_main_menu_pressed():
 	## Handles main menu button press
-	# For now, just quit (in full game this would go to main menu)
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

@@ -92,13 +92,13 @@ func _detect_gold_particles(separation_factor: float) -> int:
 	var detection_chance = separation_factor * location_richness
 	if randf() < detection_chance:
 		# Random number of gold particles found based on location richness
-		return int(rand_range(1, 3)) * location_richness
+		return randi_range(1, 3) * location_richness
 	return 0
 
 func _collect_gold(amount: int):
 	## Collects gold particles and updates state
 	gold_count += amount
-	pending_panning_success.emit(amount)
+	panning_success.emit(amount)
 
 func _shake_pan():
 	## Applies shaking motion to the pan to separate particles
@@ -124,11 +124,11 @@ func _remove_water():
 
 func _generate_initial_sediment():
 	## Populates the pan with initial sediment and potential gold particles
-	sediment_count = int(rand_range(30, 60))
+	sediment_count = randi_range(30, 60)
 	# Add some randomness to gold generation based on location richness
 	var gold_chance = 0.3 * location_richness
 	if randf() < gold_chance:
-		gold_count = int(rand_range(1, 3))
+		gold_count = randi_range(1, 3)
 	
 	# Adjust based on environmental factors
 	sediment_count *= current_weather_effect
@@ -144,9 +144,9 @@ func start_panning_minigame():
 func end_panning_minigame():
 	## Ends the panning minigame and evaluates results
 	var success_rate = float(gold_count) / max(1, gold_count + sediment_count)
-	
+
 	if success_rate >= success_threshold:
-		pending_panning_success.emit(gold_count)
+		panning_success.emit(gold_count)
 	else:
 		panning_failure.emit()
 	
