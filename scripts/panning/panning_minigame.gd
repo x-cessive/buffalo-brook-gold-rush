@@ -171,20 +171,25 @@ func _generate_initial_particles():
 
 func _create_particle(position: Vector2, particle_type: String, visible: bool = true):
 	## Creates a visual particle for the minigame
-	var particle_sprite = Sprite2D.new()
+	var particle_sprite = ColorRect.new()
 	particle_sprite.position = position
 	particle_sprite.visible = visible
-	
-	# Set texture based on particle type
+
+	# Set appearance based on particle type
 	match particle_type:
 		"sediment":
-			# In a real implementation, you'd load the actual texture
-			# particle_sprite.texture = load("res://assets/sprites/panning/sediment.png")
-			particle_sprite.modulate = Color.BROWN
+			# Brown/gray sediment particles
+			particle_sprite.size = Vector2(randf_range(3, 6), randf_range(3, 6))
+			particle_sprite.color = Color(0.4 + randf() * 0.2, 0.3 + randf() * 0.1, 0.2, 1.0)
 		"gold":
-			# particle_sprite.texture = load("res://assets/sprites/panning/gold_particle.png")
-			particle_sprite.modulate = Color.YELLOW
-	
+			# Shiny gold particles with glow effect
+			particle_sprite.size = Vector2(randf_range(4, 8), randf_range(4, 8))
+			particle_sprite.color = Color(1.0, 0.85, 0.3, 1.0)
+			# Add a subtle glow animation
+			var tween = create_tween().set_loops()
+			tween.tween_property(particle_sprite, "modulate:a", 0.7, 0.5)
+			tween.tween_property(particle_sprite, "modulate:a", 1.0, 0.5)
+
 	return particle_sprite
 
 func _update_particle_physics(delta: float):
