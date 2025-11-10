@@ -1,6 +1,9 @@
 ## 24-hour in-game clock for Buffalo Brook Gold Rush
 ## Manages the game time and signals time-based events
 
+extends Node
+class_name TimeClock
+
 # Time-related enums and constants
 enum TimeOfDay {
 	MIDNIGHT = 0,      # 0:00 - 2:59
@@ -16,8 +19,6 @@ enum TimeOfDay {
 # Clock speed multiplier (1.0 = real-time, higher = faster)
 const DEFAULT_SPEED = 1.0
 const DAY_DURATION_IN_SECONDS = 600.0  # 10 minutes for a full day in the game (adjustable)
-
-extends Node
 
 # Signals for time events
 signal time_changed(old_time, new_time)
