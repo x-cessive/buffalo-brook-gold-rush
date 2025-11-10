@@ -1,6 +1,8 @@
 ## Global weather system for Buffalo Brook Gold Rush
 ## Manages weather states and their effects on gameplay
 
+extends Node
+
 # Weather states
 enum WeatherState {
 	SUNNY = 0,
@@ -31,9 +33,6 @@ class WeatherData:
 		ambient_sound_multiplier = 1.0
 		visibility_range = 100.0  # Full visibility
 		precipitation_intensity = 0.0
-
-## Global weather system
-extends Node
 
 # Signals for weather events
 signal weather_changed(old_weather, new_weather)
