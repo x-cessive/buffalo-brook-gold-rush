@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://-e2ggu7aclw0l"]
+[gd_scene load_steps=2 format=3 uid="uid://-e2ggu7aclw0l"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/sprites/gui/gold_icon.png" id="2"]
-[ext_resource type="Texture2D" path="res://assets/sprites/tools/basic_pan.png" id="3"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1")
